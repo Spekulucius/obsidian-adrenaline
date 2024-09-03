@@ -747,7 +747,7 @@ table {
 
 /*paragraph spacing*/
 p {
-	--p-spacing: .1rem !important;
+	--p-spacing: 1rem !important;
 }
 /****************/
 
@@ -887,11 +887,6 @@ mjx-math {
 
 .callout-content {
 	overflow: visible;
-}
-
-.callout-title {
-	text-transform: uppercase;
-	font-size: 1.3em;
 }
 
 .theme-dark .callout-title {
