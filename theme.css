@@ -116,27 +116,30 @@ svg * {
 /*WORKSPACE*****************************************************************************************************************************************************************************/
 /*ROUNDED WORKSPACE*/
 .theme-light
+.mod-vertical
 .workspace-leaf {
-	position: relative;
+    position: relative;
 	z-index: 0;
     background-color:var(--accent-color-bg);
-    padding-left: 7px !important;
-    padding-right: 7px !important;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 10px;
 }
     
 .theme-dark
+.mod-vertical
 .workspace-leaf {
     background-color:var(--accent-color-bg_d) !important;
-    padding-left: 7px !important;
-    padding-right: 7px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
     padding-top: 5px;
     padding-bottom: 10px;
 }
 
 
 .theme-light
+.mod-vertical
 .workspace-leaf-content {
 	background-color: white !important;
     display: flex;
@@ -145,12 +148,14 @@ svg * {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.26);
 }
 .theme-light
+.mod-vertical
 .view-content {
 	background-color: white !important;
 }
 
 
 .theme-dark
+.mod-vertical
 .workspace-leaf-content {
 	background-color: #0e0e0e;
     display: flex;
@@ -159,6 +164,7 @@ svg * {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.596);
 }
 .theme-dark
+.mod-vertical
 .view-content {
 	background-color: #0e0e0e !important;
 }
@@ -288,7 +294,7 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
 
 /*active tab width*/
 .theme-light, .theme-dark {
-    --tab-max-width: 35%;
+    --tab-max-width: 50%;
 }
 
 
@@ -654,7 +660,7 @@ img {
 
 /*ITALIC TEXT COLOR*/
 i, em, span.cm-em {
-    color: var(--accent-color-light10); 
+    color: grey; 
 }
 /****************/
 
@@ -864,9 +870,10 @@ mjx-math {
 	padding-left: 5px !important;
 	border-radius: 5px;
 	border-color: var(--accent-color-light10) !important;
-	background: var(--accent-color-light1);
+	background: var(--accent-color-light08);
 	border-left: 10px solid white;
     margin-top: 0px;
+    padding-right: 5px;
 }
 /************************************************************************************/
 
@@ -883,6 +890,7 @@ mjx-math {
 	margin-top: 10px !important;
 	margin-bottom: 10px !important;
 	background-color: var(--accent-color-light08);
+    border: 1px solid var(--accent-color-light10);
 }
 
 .callout-content {
@@ -891,10 +899,12 @@ mjx-math {
 
 .theme-dark .callout-title {
 	color: white;
+    font-size: 1.1em;
 }
 
 .theme-light .callout-title {
 	color: black;
+    font-size: 1.1em;
 }
 
 .callout-icon {
