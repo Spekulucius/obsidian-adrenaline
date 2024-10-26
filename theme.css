@@ -40,7 +40,7 @@ svg * {
 
 /*dark theme colors*/
 .theme-dark {
-    --background-primary: var(--accent-color-bg_d);
+    --background-primary: #252525;
     --background-secondary: var(--accent-color-bg_d);
 	--background-secondary-alt: var(--accent-color-bg_d);
 }
@@ -48,20 +48,20 @@ svg * {
 /*light theme colors*/
 .theme-light {
     --background-primary: var(--accent-color-bg);
-    --background-secondary: var(--accent-color-bg);
-	--background-secondary-alt: var(--accent-color-bg);
+    --background-secondary: var(--accent-color-bg2);
+	--background-secondary-alt: var(--accent-color-bg2);
 }
 
 
 /*UI colors*/
 .theme-light
 .workspace-leaf-content {
-    background:var(--accent-color-bg);
+    background:var(--accent-color-bg2);
 }
 
 .theme-dark
 .workspace-leaf-content {
-    background:var(--accent-color-bg_d);
+    background:var(--accent-color-bg_d2);
 }
 
 
@@ -99,9 +99,9 @@ svg * {
     --accent-color-alt2: hsl(var(--accent-h), calc(1*var(--accent-s)), calc(1.7*var(--accent-l)), 1);
 
     --accent-color-bg: hsl(var(--accent-h),var(--accent-s), 98%, 1);
-    --accent-color-bg2: hsl(var(--accent-h),var(--accent-s), 85%, 1);
+    --accent-color-bg2: hsl(var(--accent-h),var(--accent-s), 96%, 1);
     --accent-color-bg2c: hsl(var(--accent-h),var(--accent-s), 85%, 1);
-    --accent-color-bg_d: hsl(var(--accent-h),calc(.15*var(--accent-s)), 10%, 1);
+    --accent-color-bg_d: hsl(var(--accent-h),calc(.1*var(--accent-s)), 20%, 1);
     --accent-color-bg_dc: hsl(var(--accent-h), calc(.1*var(--accent-s)), 15%, 1);
 
     --accent-color-inverse: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 49%)*-100));
@@ -120,7 +120,7 @@ svg * {
 .workspace-leaf {
     position: relative;
 	z-index: 0;
-    background-color:var(--accent-color-bg);
+    background-color:var(--accent-color-bg2);
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -145,12 +145,12 @@ svg * {
     display: flex;
     min-width: 100px;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.26);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
 }
 .theme-light
 .mod-vertical
 .view-content {
-	background-color: white !important;
+	background-color: var(--accent-color-bg) !important;
 }
 
 
@@ -166,7 +166,7 @@ svg * {
 .theme-dark
 .mod-vertical
 .view-content {
-	background-color: #0e0e0e !important;
+	background-color: #252525 !important;
 }
 
 
@@ -184,17 +184,8 @@ svg * {
 
 
 /*VAULT*******************************************************************************************************************************/
-.workspace-split.mod-left-split:not(:hover) .workspace-sidedock-vault-profile {
-	border-top: 0px !important;
-	height: 0px !important;
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
-	transition: all .5s;
-}
 
-
-
-.workspace-split.mod-left-split:hover .workspace-sidedock-vault-profile {
+.workspace-split.mod-left-split .workspace-sidedock-vault-profile {
 	border-top: 0px !important;
 	height: 42px !important;
 	transition: all .5s;
@@ -251,15 +242,14 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
 /*active tab look*/
 .mod-root:not(.mod-left-split):not(.mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active {
     flex-grow: 1;
-    background-color: var(--accent-color-light3);
+    background-color: var(--accent-color-light1);
     margin: 0 2.5px 5px 2.5px;
-    height: 90%;
+    height: 85%;
     max-width: var(--tab-max-width);
-    border: 1px solid var(--accent-color-light5);
+    border: 1px solid var(--accent-color-light6);
     border-radius: 5px;
     color: black;
     font-weight: 600 !important;
-    text-align: center !important;
     transition: all 1s !important;
 }
 
@@ -272,14 +262,12 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
 /*inactive tab look*/
 .mod-root:not(.mod-left-split):not(.mod-right-split) .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
     flex-grow: .1;
-    background-color: var(--accent-color-light1);
+    background-color: var(--accent-color-light05);
+    border: 1px solid var(--accent-color-light3);
     font-weight: 300;
-    position: relative;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
     margin: 0 2.5px 5px 2.5px;
-    height:90%;
+    height:85%;
     transition: all 1s !important;
 }
 
@@ -294,7 +282,7 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
 
 /*active tab width*/
 .theme-light, .theme-dark {
-    --tab-max-width: 50%;
+    --tab-max-width: 40%;
 }
 
 
@@ -302,6 +290,7 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
 .theme-light
 .workspace-tab-header-inner-title:not(.workspace-split) {
     text-align: center !important;
+    padding-top: .2em;
     color: var(--accent-color-light9);
     font-size: 15px;
 }
@@ -452,12 +441,13 @@ button.mod-cta:hover {
 }
 
 .workspace-tab-header.tappable {
-    height: 30px;
-    border-radius: 10px ;
+    margin-top: 1px;
+    height: 25px;
+    border-radius: 5px;
 }
 
 .workspace-tab-header-inner {
-    border-radius: 10px;
+    border-radius: 5px;
     transition: all .5s;
 }
 
@@ -485,14 +475,14 @@ button.mod-cta:hover {
 /*NAV FOLDER FONT STYLE*/
 .theme-light
 .nav-folder-title-content {
-    color:black;
-    font-weight: 900;
+    color:rgb(61, 61, 61);
+    font-weight: 800;
 }
 
 .theme-dark
 .nav-folder-title-content {
-    color:white;
-    font-weight: 900;
+    color:rgb(211, 211, 211);
+    font-weight: 800;
 }
 
 
@@ -686,65 +676,93 @@ table {
 
 /*HEADINGS***********************************************************************************/
 
-/*HEADINGS-uppercase*/
-.cm-header {
-    text-transform: uppercase;
-}
-.markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3, .markdown-rendered h4, .markdown-rendered h5, .markdown-rendered h6 {
-    text-transform: uppercase;
-}
-/****************/
-
-
 /*HEADINGS - colors*/
 .HyperMD-header-1 {
     color:var(--accent-color-light10);
+    font-size: 1.5em;
 }
+.HyperMD-header-1.cm-line::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 5px;
+    height: 1em;
+    border-radius: 10px;
+    background-color: var(--accent-color-light10);
+    left: -27px;
+}
+
 .HyperMD-header-2 {
     color:var(--accent-color-light8);
+    font-size: 1.5em;
 }
 .HyperMD-header-3 {
     color:var(--accent-color-light6);
+    font-size: 1.5em;
 }
 .HyperMD-header-4 {
     color:var(--accent-color-light5);
+    font-size: 1.5em;
 }
 .HyperMD-header-5 {
     color:var(--accent-color-light4);
+	font-size: 1.5em;
 }
 .HyperMD-header-6 {
     color:var(--accent-color-light3);
+    font-size: 1.5em;
 }
 
 .markdown-rendered h1 {
     color:var(--accent-color-light10);
 	margin-top: 20px !important;
 	margin-bottom: 0px !important;
+    font-size: 1.5em;
 }
+.markdown-rendered h1::before {
+    margin-right: -5px;
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 1em;
+    border-radius: 10px;
+    background-color: var(--accent-color-light10);
+    transform: translate(-28px, 0.2em);
+}
+
+.markdown-preview-view .heading-collapse-indicator {
+    transform: translate(0px, -1.8rem);
+}
+
 .markdown-rendered h2 {
     color:var(--accent-color-light8);
 	margin-top: 5px !important;
 	margin-bottom: 0px !important;
+font-size: 1.5em;
 }
 .markdown-rendered h3 {
     color:var(--accent-color-light6);
 	margin-top: 5px !important;
 	margin-bottom: 0px !important;
+font-size: 1.5em;
 }
 .markdown-rendered h4 {
     color:var(--accent-color-light5);
 	margin-top: 5px !important;
 	margin-bottom: 0px !important;
+font-size: 1.5em;
 }
 .markdown-rendered h5 {
     color:var(--accent-color-light4);
 	margin-top: 5px !important;
 	margin-bottom: 0px !important;
+font-size: 1.5em;
 }
 .markdown-rendered h6 {
     color:var(--accent-color-light3);
 	margin-top: 5px !important;
 	margin-bottom: 0px !important;
+font-size: 1.5em;
 }
 /****************/
 
@@ -867,7 +885,7 @@ mjx-math {
  {
 	padding-top: 2px;
 	padding-bottom: 2px;
-	padding-left: 5px !important;
+	padding-left: 10px !important;
 	border-radius: 5px;
 	border-color: var(--accent-color-light10) !important;
 	background: var(--accent-color-light08);
@@ -906,6 +924,7 @@ mjx-math {
 	color: black;
     font-size: 1.1em;
 }
+
 
 .callout-icon {
 	display: none;
