@@ -801,6 +801,11 @@ li {
 ::marker {
 	color: var(--accent-color-light10) !important;	
 }
+
+
+.list-bullet::after {
+    background-color: var(--accent-color-light10);
+}
 /****************/
 
 
