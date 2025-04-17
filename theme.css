@@ -777,6 +777,11 @@ p + ul {
     margin-top: 0px !important;
 }
 
+ul {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
 p:has(+ ul.has-list-bullet) {
     margin-bottom: 0px;
 }
