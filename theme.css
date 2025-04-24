@@ -610,6 +610,11 @@ img {
 }
 
 
+img[alt="c"] {
+    mix-blend-mode: multiply !important;
+    filter: grayscale(100%) !important;
+}
+
 
 /*HIGHLIGHTING*/
 .cm-s-obsidian span.cm-formatting-highlight, .cm-s-obsidian span.cm-highlight,
@@ -768,6 +773,10 @@ sp {
     margin-top: 1em !important;
 }
 
+p + p {
+    margin-top: 1em !important;
+}
+
 p {
     margin-top: 0px !important;
     margin-bottom: .1em !important;
@@ -922,7 +931,7 @@ mjx-math {
 	padding: .7em;
 	padding-bottom: .2em !important; 
 	padding-top: .2em;
-	margin-top: 10px !important;
+	margin-top: .3em !important;
 	margin-bottom: .5em !important;
 	background-color: var(--accent-color-light08) !important;
     border: solid 1px var(--accent-color-light10) !important;
