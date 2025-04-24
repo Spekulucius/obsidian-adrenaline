@@ -930,7 +930,7 @@ mjx-math {
 .callout {
 	padding: .7em;
 	padding-bottom: .2em !important; 
-	padding-top: .2em;
+	padding-top: .7em;
 	margin-top: .3em !important;
 	margin-bottom: .5em !important;
 	background-color: var(--accent-color-light08) !important;
@@ -938,7 +938,9 @@ mjx-math {
     box-shadow: inset 0px 0px 1000px 1px var(--accent-color-light1) !important;
 }
 
-
+.callout-title-inner {
+    margin-bottom: .5em;
+}
 .callout-content blockquote {
     margin-bottom: .2em !important;
     margin-top: .2em !important;
