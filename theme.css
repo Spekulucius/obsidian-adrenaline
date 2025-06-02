@@ -386,10 +386,35 @@ body:not(.native-scrollbars) .modal-close-button {
     display:none;
 }
 
+.theme-dark
+.view-header
+.clickable-icon {
+    background: none !important;
+    color: white !important;
+}
 
+.theme-light
+.view-header
+.clickable-icon {
+    background: none !important;
+    color: black !important;
+}
+
+
+.theme-dark
 button.mod-cta, button {
     background-color: var(--accent-color-light2) !important;
     color: white !important;
+    shadow: none;
+    transition: .5s;
+    box-shadow: none !important;
+    border-radius: 10px;
+}
+
+.theme-light
+button.mod-cta, button {
+    background-color: var(--accent-color-light2) !important;
+    color: black !important;
     shadow: none;
     transition: .5s;
     box-shadow: none !important;
