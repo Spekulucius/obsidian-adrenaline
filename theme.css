@@ -345,11 +345,11 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
 }
 
 .setting-item-name {
-    font-family: Cascadia Code, inter, verdana !important;
+    font-family: inter, verdana !important;
 }
 
 .vertical-tab-nav-item {
-    font-family: Cascadia Code, inter, verdana !important;
+    font-family: inter, verdana !important;
 }
 
 /*UI SLIDERS*/
@@ -410,6 +410,7 @@ div.setting-item.setting-item-heading {
 /***********************************/
 
 .theme-light
+div.vertical-tab-content
 div.setting-item {
     background-color: white;
     border-radius: 10px;
@@ -439,6 +440,7 @@ div.modal.mod-settings.mod-sidebar-layout {
 /************************************/
 
 .theme-dark
+div.vertical-tab-content
 div.setting-item {
     background-color: var(--accent-color-bg_dc);
     border-radius: 10px;
@@ -596,14 +598,14 @@ div.sidebar-toggle-button.mod-left {
 .nav-folder-title-content {
     color:rgb(61, 61, 61);
     font-weight: 800;
-    font-family: Cascadia Code, inter, verdana !important;
+    font-family: inter, verdana !important;
 }
 
 .theme-dark
 .nav-folder-title-content {
     color:rgb(193, 193, 193);
     font-weight: 600;
-    font-family: Cascadia Code, inter, verdana !important;
+    font-family: inter, verdana !important;
 }
 
 
