@@ -389,7 +389,7 @@ body:not(.native-scrollbars) .modal-close-button {
 
 button.mod-cta, button {
     background-color: var(--accent-color-light2) !important;
-    color: black;
+    color: white !important;
     shadow: none;
     transition: .5s;
     box-shadow: none !important;
