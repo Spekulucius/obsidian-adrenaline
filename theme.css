@@ -200,7 +200,7 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
     font-weight: 500 !important;
     transition: all 1s !important;
     box-shadow: none !important;
-    font-family: menda, Cascadia Code, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 .theme-dark
@@ -213,7 +213,7 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
     font-weight: 500 !important;
     transition: all 1s !important;
     box-shadow: none !important;
-    font-family: menda, Cascadia Code, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 .workspace-tab-header {
@@ -230,7 +230,7 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
     margin: 0 2.5px 5px 2.5px;
     height:85%;
     transition: all 1s !important;
-    font-family: menda, Cascadia Code, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 .theme-dark
@@ -241,7 +241,7 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
     height:85%;
     transition: all 1s !important;
     background-color: rgb(54, 54, 54);
-    font-family: menda, Cascadia Code, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 
@@ -345,11 +345,11 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-r
 }
 
 .setting-item-name {
-    font-family: menda, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 .vertical-tab-nav-item {
-    font-family: menda, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 /*UI SLIDERS*/
@@ -596,14 +596,14 @@ div.sidebar-toggle-button.mod-left {
 .nav-folder-title-content {
     color:rgb(61, 61, 61);
     font-weight: 800;
-    font-family: menda, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 .theme-dark
 .nav-folder-title-content {
     color:rgb(193, 193, 193);
     font-weight: 600;
-    font-family: menda, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 
@@ -821,7 +821,7 @@ table {
 /*HEADINGS - colors*/
 
 .inline-title {
-    font-family: menda, Cascadia Code, inter, verdana !important;
+    font-family: Cascadia Code, inter, verdana !important;
 }
 
 .HyperMD-header-1 {
@@ -832,7 +832,7 @@ table {
     padding-top: 0px !important;
     padding-left: 16px !important;
     box-shadow: var(--accent-color-light10);
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1 {
@@ -846,7 +846,7 @@ table {
     border-left: 3px dashed var(--accent-color-light10);
     padding-top: 0px !important;
     padding-left: 16px !important;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2 {
@@ -860,7 +860,7 @@ table {
     border-left: 3px dotted var(--accent-color-light10);
     padding-top: 0px !important;
     padding-left: 16px !important;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3 {
@@ -870,17 +870,17 @@ table {
 .HyperMD-header-4 {
     color:var(--accent-color-light8);
     font-size: 1.5em;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 .HyperMD-header-5 {
     color:var(--accent-color-light7);
     font-size: 1.5em;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 .HyperMD-header-6 {
     color:var(--accent-color-light6);
     font-size: 1.5em;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 
 .markdown-rendered h1 {
@@ -891,7 +891,7 @@ table {
     border-left: 3px solid var(--accent-color-light10);
     padding-left: 16px;
     margin-left: -20px;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 
 .markdown-rendered h2 {
@@ -902,7 +902,7 @@ table {
     border-left: 3px dashed var(--accent-color-light10);
     padding-left: 16px;
     margin-left: -20px;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 .markdown-rendered h3 {
     color:var(--accent-color-light10);
@@ -912,28 +912,28 @@ table {
     border-left: 3px dotted var(--accent-color-light10);
     padding-left: 16px;
     margin-left: -20px;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 .markdown-rendered h4 {
     color:var(--accent-color-light8);
     margin-top: 5px !important;
     margin-bottom: 0px !important;
     font-size: 1.5em;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 .markdown-rendered h5 {
     color:var(--accent-color-light7);
     margin-top: 5px !important;
     margin-bottom: 0px !important;
     font-size: 1.5em;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 .markdown-rendered h6 {
     color:var(--accent-color-light6);
     margin-top: 5px !important;
     margin-bottom: 0px !important;
     font-size: 1.5em;
-    font-family: menda, Cascadia Code, inter, verdana;
+    font-family: Cascadia Code, inter, verdana;
 }
 /****************/
 
