@@ -1,3 +1,9 @@
+/*===================================== INFORMATION =================================================
+This theme uses content created by other theme creators.
+Wherever such content is used, their author is attributed.
+If you have any questions or concerns, please contact me on Github: https://github.com/Spekulucius */
+
+
 /*=========================================== COLORS ===================================================*/
 .theme-light, .theme-dark {
     --caccent-i1: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 49%)*-100));
@@ -22,7 +28,7 @@
     --icon-color: var(--caccent1);
     --tci: black;
     --tc: rgb(25, 25, 25);
-    
+    --canvas-background: var(--bg2);
 }
 
 .theme-dark {
@@ -42,6 +48,7 @@
     --tci: white;
     --tc: rgb(209, 209, 209);
     --background-secondary: var(--bg2);
+    --canvas-background: var(--bg2);
 }
 
 
@@ -137,7 +144,6 @@ div.nav-header
 
 /*================= Ribbon Icons ============================*/
 .side-dock-ribbon-action {
-    color: transparent; !important;
     width: 0px;
     height: 20px;
     padding: 3px;
@@ -158,7 +164,7 @@ div.nav-header
 
 
 /*================ Ribbon Sidebar Icon =====================*/
-body:has(.workspace-ribbon.side-dock-ribbon) .sidebar-toggle-button.mod-left {
+body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left {
     width: 20px !important;
         transition: .5s;
         padding-top: 10px;
@@ -166,14 +172,14 @@ body:has(.workspace-ribbon.side-dock-ribbon) .sidebar-toggle-button.mod-left {
 }
 
 
-body:has(.workspace-ribbon.side-dock-ribbon) .workspace-ribbon.side-dock-ribbon.mod-left:hover
+body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .workspace-ribbon.side-dock-ribbon.mod-left:hover
 .sidebar-toggle-button.mod-left {
     width: 44px !important;
     color: var(--bg1);
         transition: .1s;
 }
 
-.sidebar-toggle-button.mod-left>.clickable-icon {
+body:not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon {
     color: transparent;
     background: var(--caccent1) !important;
     width: 0px;
@@ -181,14 +187,14 @@ body:has(.workspace-ribbon.side-dock-ribbon) .workspace-ribbon.side-dock-ribbon.
         transition: color .01s, width .5s, background .2s linear normal;
 }
 
-body:not(.show-ribbon) .sidebar-toggle-button.mod-left>.clickable-icon {
+body:not(.show-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon {
     color: var(--caccent1);
     background: transparent !important;
     width: unset;
     padding: unset;
 }
 
-
+body:not(.mod-macos)
 .workspace-ribbon.side-dock-ribbon.mod-left:hover
 .sidebar-toggle-button.mod-left>.clickable-icon {
     color: var(--nav-item-color);
@@ -223,6 +229,7 @@ body:not(.show-ribbon) .sidebar-toggle-button.mod-left>.clickable-icon {
 
 .cm-scroller,
 .view-header,
+.view-content,
 .workspace-split.mod-left-split .workspace-sidedock-vault-profile,
 .empty-state,
 .markdown-rendered,
@@ -385,7 +392,7 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-si
 
 
 /*=============tab headers============*/
-.workspace-tab-header-container {
+body:not(.mod-macos) .workspace-tab-header-container {
     padding-left: 0px !important;
 }
 
@@ -593,6 +600,37 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
 
 
 
+/*============================================= Hover Indicator ========================================================*/
+/*Credit goes to @Akifyss on github: https://github.com/Akifyss, https://github.com/Akifyss/obsidian-border */
+.workspace-leaf-content:is([data-type="markdown"], [data-type="webviewer"]):not(:has(.document-search-container)) .markdown-preview-sizer>div:not(:has(.collapse-indicator, .mk-header)) {
+    position: relative;
+}
+
+.markdown-source-view .cm-content>div:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent)::after,
+.markdown-source-view .cm-content>div:not(.image-embed, .mk-header, .HyperMD-header, :has(.mk-note-footer, .collapse-indicator))::after,
+.markdown-preview-sizer>div:is(.el-ul, .el-ol)::after,
+.markdown-preview-sizer>div:not(:has(.collapse-indicator, .mk-header))::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 3px;
+    width: 3px;
+    height: 0;
+    border-radius: 10px;
+    background: var(--hover-indicator-color);
+    --hover-indicator-color: var(--text-faint);
+    opacity: 1;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent):hover::after,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(.image-embed, .mk-header, .HyperMD-header, :has(.mk-note-footer, .collapse-indicator)):hover::after,
+.workspace-leaf-content:is([data-type="markdown"], [data-type="webviewer"]):not(:has(.document-search-container)) .markdown-preview-sizer>div:is(.el-ul, .el-ol):hover::after,
+.workspace-leaf-content:is([data-type="markdown"], [data-type="webviewer"]):not(:has(.document-search-container)) .markdown-preview-sizer>div:not(:has(.collapse-indicator, .mk-header)):hover::after {
+    height: calc(100% - 6px);
+}
+
+
+
 
 
 
@@ -609,6 +647,31 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
     color: var(--tci);
     border-radius: 3px;
 }
+/*======== SEARCHED TEXT HIGHLIGHTING =================*/
+.search-result-file-matched-text {
+    background:var(--caccent1);
+    color: var(--caccent-i1);
+    border-radius: 3px;
+    padding-left:   2px;
+    padding-right:  2px;
+    padding-top:    0px;
+    padding-bottom: 0px;
+    border-radius: 3px;
+}
+
+.is-flashing {
+    background:var(--caccent1) !important;
+    color: var(--caccent-i1);
+    border-radius: 3px;
+    padding-left:   2px;
+    padding-right:  2px;
+    padding-top:    0px;
+    padding-bottom: 0px;
+    border-radius: 3px;
+}
+/****************/
+
+
 
 
 
@@ -774,8 +837,6 @@ body {
     --background-alt-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.12' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
     --background-alt-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.12' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
-
-
 body {
     --blockquote-border-thickness: 3px;
     --blockquote-border-color: var(--interactive-accent);
@@ -785,24 +846,20 @@ body {
     --blockquote-background-light: var(--background-alt-light);
     --blockquote-background-dark: var(--background-alt-dark);
 }
-
 .theme-light .markdown-source-view .cm-scroller .cm-line.HyperMD-quote,
 .theme-light .markdown-rendered blockquote {
     border-radius: var(--radius-s);
     background: var(--blockquote-background-light);
 }
-
 .theme-dark .markdown-source-view .cm-scroller .cm-line.HyperMD-quote,
 .theme-dark .markdown-rendered blockquote {
     border-radius: var(--radius-s);
     background: var(--blockquote-background-dark);
 }
-
 .markdown-rendered blockquote,
 .markdown-preview-view blockquote {
     position: relative;
 }
-
 .markdown-rendered blockquote::before,
 .markdown-preview-view blockquote::before {
     content: "";
@@ -814,12 +871,9 @@ body {
     background-color: var(--blockquote-border-color);
     border-radius: 24px;
 }
-
 .markdown-rendered blockquote {
     border-left: none;
 }
-
-
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote::before {
     content: "";
     width: var(--blockquote-border-thickness) !important;
@@ -834,11 +888,9 @@ body {
     bottom: 4px !important;
     height: calc(100% - 4px);
 }
-
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.cm-line {
     border-left: 4px solid transparent;
 }
-
 .markdown-source-view.mod-cm6 div:not(.HyperMD-quote)+.HyperMD-quote::before,
 .markdown-source-view.mod-cm6 .cm-content :first-child:is(.HyperMD-quote)::before {
     top: 4px !important;
@@ -847,7 +899,6 @@ body {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
-
 .markdown-source-view.mod-cm6 div:not(.HyperMD-quote)+.HyperMD-quote:not(:has(+ .HyperMD-quote))::before,
 .markdown-source-view.mod-cm6 .cm-content :first-child:is(.HyperMD-quote):not(:has(+ .HyperMD-quote))::before {
     bottom: 4px !important;
@@ -855,28 +906,22 @@ body {
     height: calc(100% - 8px);
     border-radius: 24px;
 }
-
 .markdown-source-view.mod-cm6 .HyperMD-quote:has(+ .HyperMD-quote)::before {
     bottom: 0px !important;
     height: 100%;
     border-radius: 0px;
 }
-
-/*---*/
-
 .markdown-source-view.mod-cm6 .HyperMD-quote {
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
     border-bottom-left-radius: var(--radius-s) !important;
     border-bottom-right-radius: var(--radius-s) !important;
 }
-
 .markdown-source-view.mod-cm6 div:not(.HyperMD-quote)+.HyperMD-quote,
 .markdown-source-view.mod-cm6 .cm-content :first-child:is(.HyperMD-quote) {
     border-top-left-radius: var(--radius-s) !important;
     border-top-right-radius: var(--radius-s) !important;
 }
-
 .markdown-source-view.mod-cm6 .HyperMD-quote:has(+ .HyperMD-quote) {
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
@@ -971,12 +1016,6 @@ body {
     margin-bottom: 0px !important;
 }
 
-
-
-
-
-
-
 /*=========== No Callout Icon ===========*/
 .callout-icon:not(.el-div .callout[data-callout="c"] .callout-icon) {
     display: none;
@@ -997,6 +1036,7 @@ img[alt="c"] {
 
 
 /*================= ROUNDED TABLES =================*/
+/*Credit goes to "FireIsGood": https://forum.obsidian.md/t/adding-rounded-corners-to-markdown-tables-with-snippets-a-clean-solution/60551 */
 /* TABLES: Fix the borders and add a radius variable */
 :root table {
     --table-border-radius: 8px;
@@ -1046,3 +1086,16 @@ body:not(.show-ribbon):has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collap
 }
 
 
+
+/*================= MACOS ==================*/
+body.mod-macos .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container {
+    padding-left: calc(var(--size-4-2) + var(--frame-left-space) + 10px) !important;
+}
+
+body:not(.show-ribbon).mod-macos .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container {
+    padding-left: calc(var(--size-4-2) + var(--frame-left-space) - 34px) !important;
+}
+
+body.mod-macos .sidebar-toggle-button.mod-right {
+    background: transparent !important;
+}
