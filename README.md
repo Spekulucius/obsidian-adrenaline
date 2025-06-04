@@ -44,6 +44,6 @@ Additionally, they adjust to the accent color
 _This theme uses content created by other theme creators. Wherever such content is used, their author is attributed. If you have any questions or concerns, please contact me on GitHub_
 
 # Information about the update
-Our of all themes I created, Adrenaline is by far my most valued one. Therefore, I want it to be as good as it can be. Version 1 had a completely different look, but I wasn't satisfied with it any more. To anyone missing that look, you can head over to my other theme "Marathon" - it is almost a 1:1 copy of the old Adrenaline.
+Out of all themes I created, Adrenaline is by far my most valued one. Therefore, I want it to be as good as it can be. Version 1 had a completely different look, but I wasn't satisfied with it any more. To anyone missing that look, you can head over to my other theme "Marathon" - it is almost a 1:1 copy of the old Adrenaline.
 
 Don't like the new callouts of Marathon? You can change them in the theme.css file (I plan on implementing a style settings option for that) -> On the bottom of theme theme.css file is the old code for the adrenaline callout, wich can be enabled (remeber to delete the old .callout code).
