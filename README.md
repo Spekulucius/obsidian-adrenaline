@@ -1,4 +1,4 @@
-![](/images/adrenaline_overview_new.png)
+![](/images/adrenaline_theme_banner_big.png)
 
 # About
 _Working on a description atm_
