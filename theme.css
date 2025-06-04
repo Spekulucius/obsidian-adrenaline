@@ -616,19 +616,19 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
 .markdown-preview-view, .view-content>.cm-s-obsidian, .view-content>.markdown-source-view.mod-cm6.is-live-preview>.cm-scroller, body {
     font-weight: 350;
     color: var(--tc);
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .cm-html-embed th, .markdown-rendered th {
     font-weight: 350;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 table {
     font-weight: 350;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .view-content {
     border: 0px;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 
 
@@ -641,7 +641,7 @@ table {
     padding-left: 20px !important;
     box-shadow: var(--accent-color-light10);
     margin-left: -24px !important;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2 {
@@ -650,7 +650,7 @@ table {
     padding-top: 0px !important;
     padding-left: 20px !important;
     margin-left: -24px !important;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3 {
@@ -659,16 +659,16 @@ table {
     padding-top: 0px !important;
     padding-left: 20px !important;
     margin-left: -24px !important;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4 {
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5 {
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6 {
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 
 .markdown-rendered h1 {
@@ -677,7 +677,7 @@ table {
     border-left: 3px solid var(--caccent1);
     padding-left: 20px;
     margin-left: -24px;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 
 .markdown-rendered h2 {
@@ -686,7 +686,7 @@ table {
     border-left: 3px dashed var(--caccent1);
     padding-left: 20px;
     margin-left: -24px;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .markdown-rendered h3 {
     margin-top: 5px !important;
@@ -694,22 +694,22 @@ table {
     border-left: 3px dotted var(--caccent1);
     padding-left: 20px;
     margin-left: -24px;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .markdown-rendered h4 {
     margin-top: 5px !important;
     margin-bottom: 0px !important;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .markdown-rendered h5 {
     margin-top: 5px !important;
     margin-bottom: 0px !important;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 .markdown-rendered h6 {
     margin-top: 5px !important;
     margin-bottom: 0px !important;
-    letter-spacing: 1px;
+    letter-spacing: .1px;
 }
 
 
@@ -996,7 +996,29 @@ img[alt="c"] {
 }
 
 
-
+/*================= ROUNDED TABLES =================*/
+/* TABLES: Fix the borders and add a radius variable */
+:root table {
+    --table-border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+/* Add the radius */
+th:first-child {border-top-left-radius: var(--table-border-radius)}
+th:last-child {border-top-right-radius: var(--table-border-radius)}
+tr:last-child td:first-child {border-bottom-left-radius: var(--table-border-radius)}
+tr:last-child td:last-child {border-bottom-right-radius: var(--table-border-radius)}
+      
+/* Redo the borders */
+:root :is(td, th) {
+    border-width: 0 var(--table-border-width) var(--table-border-width) 0;
+    border-color: var(--accent-color-light10) !important;
+}
+      
+.cm-html-embed table, .markdown-rendered table {
+    margin-top: 15px;
+}
+/****************/
 
 
 /*============================ FIXES ===============================*/
