@@ -1063,8 +1063,13 @@ tr:last-child td:last-child {border-bottom-right-radius: var(--table-border-radi
 .cm-html-embed table, .markdown-rendered table {
     margin-top: 15px;
 }
-/****************/
 
+/*=============== HIDE ATTACHMENT FOLDER: "000_attachments_000" - if used ==================*/
+div[data-path$='000_attachments_000'], 
+div[data-path$='000_attachments_000'] + div.nav-folder-children 
+{
+    display: none;
+}
 
 /*============================ FIXES ===============================*/
 /*fix ugly fade in tab bar*/
