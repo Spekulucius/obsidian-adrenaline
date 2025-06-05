@@ -4,6 +4,7 @@ Wherever such content is used, their author is attributed.
 If you have any questions or concerns, please contact me on GitHub: https://github.com/Spekulucius */
 
 
+
 /*=========================================== COLORS ===================================================*/
 .theme-light, .theme-dark {
     --caccent-i1: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 49%)*-100));
@@ -29,6 +30,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --tci: black;
     --tc: rgb(25, 25, 25);
     --canvas-background: var(--bg2);
+    --code-background: var(--bg1_2);
 }
 
 .theme-dark {
@@ -49,10 +51,8 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --tc: rgb(209, 209, 209);
     --background-secondary: var(--bg2);
     --canvas-background: var(--bg2);
+    --code-background: var(--bg3);
 }
-
-
-
 
 
 
@@ -1095,10 +1095,7 @@ body:not(.show-ribbon):has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collap
     padding-left: 10px !important;
 }
 
-.virtual-link-default {
-    color: var(--caccent1);
-    filter: brightness(1) !important;
-}
+
 
 
 
