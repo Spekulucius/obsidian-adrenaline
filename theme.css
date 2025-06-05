@@ -1095,8 +1095,9 @@ body:not(.show-ribbon):has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collap
     padding-left: 10px !important;
 }
 
-
-
+.virtual-link-default {
+    filter: brightness(1);
+}
 
 
 /*================= MACOS ==================*/
