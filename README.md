@@ -1,6 +1,8 @@
 ![](/images/adrenaline_theme_banner_big.png)
 
 # This is Adrenaline: a minimal theme for Obsidian, that uses the accent color for customization.
+_If you encounter an issue, please feel free to open a ticket [here](https://github.com/Spekulucius/obsidian-adrenaline/issues)_
+
 _[Why does it look different now?](#information-about-the-update)_
 # What does Adrenaline offer?
 + a [distraction free](#distraction-free), [space efficient](#space-efficient) and [good looking](#colors) workspace
