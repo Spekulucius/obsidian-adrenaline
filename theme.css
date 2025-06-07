@@ -17,7 +17,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg1-h: #bdbdbd;
     --bg1-item: var(--nav-item-color);
     --bg2: #f4f4f4;
-    --caccent1: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+    --caccent1: var(--custom-accent, hsl(var(--accent-h), var(--accent-s), var(--accent-l)));
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 40%), 95%, 100%);
     --bg4: white;
     --bg5: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 90%);
@@ -38,7 +38,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg1-h: var(--caccent1);
     --bg1-item: var(--nav-item-color);
     --bg2: #252525;
-    --caccent1: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+    --caccent1: var(--custom-accent, hsl(var(--accent-h), var(--accent-s), var(--accent-l)));
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 95%), 10%, 100%);
     --bg4: rgb(12, 12, 12);
     --bg5: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 30%);
@@ -75,6 +75,15 @@ div.nav-buttons-container
     color: transparent;
     border-radius: 50px;
     transition: flex-grow .5s, color .3s, height .6s, border-radius 3s, background 1s linear normal;
+}
+
+.clickable-icon {
+    transition: all .2s !important;
+}
+
+.clickable-icon:hover {
+    background: var(--background-modifier-hover) !important;
+    transition: all .2s !important;
 }
 
 div.nav-header:hover
@@ -145,7 +154,7 @@ div.nav-header
 /*================= Ribbon Icons ============================*/
 .side-dock-ribbon-action {
     width: 0px;
-    height: 20px;
+    height: 27.3px;
     padding: 3px;
     background: var(--caccent1);
         transition: color .01s, width .5s, background .2s linear normal;
@@ -166,9 +175,9 @@ div.nav-header
 /*================ Ribbon Sidebar Icon =====================*/
 body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left {
     width: 20px !important;
-        transition: .5s;
-        padding-top: 10px;
-        padding-bottom: 10px;
+    transition: .5s;
+    padding-top: 7px;
+    padding-bottom: 6px;
 }
 
 
@@ -179,19 +188,25 @@ body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .workspace-ribbon.s
         transition: .1s;
 }
 
+
 body:not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon {
     color: transparent;
-    background: var(--caccent1) !important;
+    background: var(--caccent1);
     width: 0px;
     padding: 3px;
         transition: color .01s, width .5s, background .2s linear normal;
 }
 
 body:not(.show-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon {
-    color: var(--caccent1);
-    background: transparent !important;
+    color: unset;
+    background: transparent;
     width: unset;
-    padding: unset;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 8px;
+}
+body:not(.show-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon:hover {
+    color: var(--color-base-70);
 }
 
 body:not(.mod-macos)
@@ -199,7 +214,7 @@ body:not(.mod-macos)
 .sidebar-toggle-button.mod-left>.clickable-icon {
     color: var(--nav-item-color);
     width: 33.333px;
-    background: transparent !important;
+    background: transparent;
         transition: background .2s,  color .1s, width .1s ease normal;
 }
 
@@ -649,7 +664,7 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
     padding-bottom: 1px;
     pointer-events: none;
     background-color: var(--caccent1);
-    color: var(--tci);
+    color: var(--caccent-i1);
     border-radius: 3px;
 }
 /*======== SEARCHED TEXT HIGHLIGHTING =================*/
@@ -682,70 +697,80 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
 
 /*================== decrease font weight ===============*/
 .markdown-preview-view, .view-content>.cm-s-obsidian, .view-content>.markdown-source-view.mod-cm6.is-live-preview>.cm-scroller, body {
-    font-weight: 350;
+    font-weight: var(--custom-font-weight, 350);
     color: var(--tc);
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
 }
 .cm-html-embed th, .markdown-rendered th {
-    font-weight: 350;
-    letter-spacing: .1px;
+    font-weight: var(--custom-font-weight, 350);
+    letter-spacing: var(--custom-letter-spacing, .1px);
 }
 table {
-    font-weight: 350;
-    letter-spacing: .1px;
+    font-weight: var(--custom-font-weight, 350);
+    letter-spacing: var(--custom-letter-spacing, .1px);
 }
 .view-content {
     border: 0px;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
 }
 
 
 
 /*========================================== HEADINGS =========================================*/
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1 {
+    margin-top: 10px !important;
     margin-bottom: 0px !important;
     border-left: 3px solid var(--caccent1);
     padding-top: 0px !important;
     padding-left: 20px !important;
     box-shadow: var(--accent-color-light10);
     margin-left: -24px !important;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h1-color, var(--general-heading-color, unset));
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2 {
+    margin-top: 10px !important;
     margin-bottom: 0px !important;
     border-left: 3px dashed var(--caccent1);
     padding-top: 0px !important;
     padding-left: 20px !important;
     margin-left: -24px !important;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h2-color, var(--general-heading-color, unset));
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3 {
+    margin-top: 10px !important;
     margin-bottom: 0px !important;
     border-left: 3px dotted var(--caccent1);
     padding-top: 0px !important;
     padding-left: 20px !important;
     margin-left: -24px !important;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h3-color, var(--general-heading-color, unset));
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4 {
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h4-color, var(--general-heading-color, unset));
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5 {
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h5-color, var(--general-heading-color, unset));
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6 {
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h6-color, var(--general-heading-color, unset));
 }
 
 .markdown-rendered h1 {
-    margin-top: 20px !important;
+    margin-top: 10px;
     margin-bottom: 0px !important;
     border-left: 3px solid var(--caccent1);
     padding-left: 20px;
     margin-left: -24px;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h1-color, var(--general-heading-color, unset));
 }
 
 .markdown-rendered h2 {
@@ -754,7 +779,8 @@ table {
     border-left: 3px dashed var(--caccent1);
     padding-left: 20px;
     margin-left: -24px;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h2-color, var(--general-heading-color, unset));
 }
 .markdown-rendered h3 {
     margin-top: 5px !important;
@@ -762,27 +788,78 @@ table {
     border-left: 3px dotted var(--caccent1);
     padding-left: 20px;
     margin-left: -24px;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h3-color, var(--general-heading-color, unset));
 }
 .markdown-rendered h4 {
     margin-top: 5px !important;
     margin-bottom: 0px !important;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h4-color, var(--general-heading-color, unset));
 }
 .markdown-rendered h5 {
     margin-top: 5px !important;
     margin-bottom: 0px !important;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h5-color, var(--general-heading-color, unset));
 }
 .markdown-rendered h6 {
     margin-top: 5px !important;
     margin-bottom: 0px !important;
-    letter-spacing: .1px;
+    letter-spacing: var(--custom-letter-spacing, .1px);
+    color: var(--custom-h6-color, var(--general-heading-color, unset));
 }
 
 
 
+/*DYNAMIC HEADING SPACING ADJUST*/
+div.el-h1 {
+    margin-top: var(--dynamic-heading-spacing, 4em);
+}
 
+div.el-h2 {
+    margin-top: var(--dynamic-heading-spacing, 4em) !important;
+}
+
+div.el-h3 {
+    margin-top: var(--dynamic-heading-spacing, 4em) !important;
+}
+
+div.el-h4 {
+    margin-top: var(--dynamic-heading-spacing, 4em) !important;
+}
+
+div.el-h5 {
+    margin-top: var(--dynamic-heading-spacing, 4em) !important;
+}
+
+div.el-h6 {
+    margin-top: var(--dynamic-heading-spacing, 4em) !important;
+}
+
+div.el-h1 + div.el-h1 {
+    margin-top: 0em !important;
+}
+
+div.el-h1 + div.el-h2, div.el-h2 + div.el-h2 {
+    margin-top: 0em !important;
+}
+
+div.el-h1 + div.el-h3, div.el-h2 + div.el-h3, div.el-h3 + div.el-h3 {
+    margin-top: 0em !important;
+}
+
+div.el-h1 + div.el-h4, div.el-h2 + div.el-h4, div.el-h3 + div.el-h4, div.el-h4 + div.el-h4  {
+    margin-top: 0em !important;
+}
+
+div.el-h1 + div.el-h5, div.el-h2 + div.el-h5, div.el-h3 + div.el-h5, div.el-h4 + div.el-h5, div.el-h5 + div.el-h5  {
+    margin-top: 0em !important;
+}
+
+div.el-h1 + div.el-h6, div.el-h2 + div.el-h6, div.el-h3 + div.el-h6, div.el-h4 + div.el-h6, div.el-h5 + div.el-h6, div.el-h6 + div.el-h6  {
+    margin-top: 0em !important;
+}
 
 /*======================================= Text Spacing =======================================*/
 .el-p + .el-p {
@@ -953,7 +1030,7 @@ body {
     --callout-title-color: inherit;
     --callout-title-padding: 6px 10px;
     --callout-title-size: inherit;
-    --callout-content-padding: 5px 10px 0px 10px;
+    --callout-content-padding: 5px 10px 5px 10px;
     --callout-content-radius: 0px;
     --blockquote-background-light: var(--background-alt-light);
     --callout-blend-mode: normal;
@@ -986,7 +1063,7 @@ body {
     --callout-title-color: inherit;
     --callout-title-padding: 6px 10px;
     --callout-title-size: inherit;
-    --callout-content-padding: 5px 10px 0px 10px;
+    --callout-content-padding: 5px 10px 5px 10px;
     --callout-content-radius: 0px;
     --blockquote-background-light: var(--background-alt-light);
     --callout-blend-mode: normal;
@@ -1093,12 +1170,16 @@ div[data-path$='000_attachments_000'] + div.nav-folder-children
 
 body:not(.show-ribbon):has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-tab-header-container-inner {
     padding-left: 10px !important;
+    margin-left: 0px;
 }
 
 .virtual-link-default {
     filter: brightness(1);
 }
 
+body.mod-windows .sidebar-toggle-button.mod-right {
+    margin-right: 5px;
+}
 
 /*================= MACOS ==================*/
 body.mod-macos .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container {
@@ -1112,3 +1193,116 @@ body:not(.show-ribbon).mod-macos .workspace-tabs.mod-top.mod-top-left-space .wor
 body.mod-macos .sidebar-toggle-button.mod-right {
     background: transparent !important;
 }
+
+
+
+/*========== STYLE SETTINGS ================*/
+/* @settings
+
+name: Theme Settings
+id: a-unique-id
+settings:
+    - 
+        id: Text and Spacing
+        title: Text and Spacing
+        type: heading
+        collapsed: ture
+        level: 2
+    -
+        id: custom-font-weight
+        title: Adjust Font Weight
+        description: 
+        type: variable-number-slider
+        default: 300
+        min: 100
+        max: 900
+        step: 100
+    -
+        id: custom-letter-spacing
+        title: Adjust Letter Spacing
+        description:
+        type: variable-number-slider
+        format: px
+        default: 0.1
+        min: -.5
+        max: 1.5
+        step: .1
+    -
+        id: dynamic-heading-spacing
+        title: Adjust Dynamix Heading Spacing
+        description:
+        type: variable-number-slider
+        format: em
+        default: 3
+        min: 0
+        max: 10
+        step: .1
+    -
+        id: Colors
+        title: Colors
+        type: heading
+        collapsed: ture
+        level: 2
+    -
+        id: custom-accent
+        title: Override Accent Color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+    -
+        id: general-heading-color
+        title: Heading Color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+    -
+        id: Individual Heading Colors
+        title: Individual Heading Colors
+        type: heading
+        collapsed: ture
+        level: 3
+    -
+        id: custom-h1-color
+        title: Custom H1 color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+    -
+        id: custom-h2-color
+        title: Custom H2 color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+    -
+        id: custom-h3-color
+        title: Custom H3 color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+    -
+        id: custom-h4-color
+        title: Custom H4 color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+    -
+        id: custom-h5-color
+        title: Custom H5 color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+    -
+        id: custom-h6-color
+        title: Custom H6 color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+*/
