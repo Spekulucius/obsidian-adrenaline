@@ -1034,7 +1034,7 @@ body {
     background: var(--bg3) !important;
 }
 .theme-dark .callout-title {
-    color: var(--tc);
+    color: var(--caccent-i1);
     background: var(--bg5);
 }
 .theme-dark
@@ -1067,7 +1067,7 @@ body {
     background: var(--bg1_2) !important;
 }
 .theme-light .callout-title {
-    color: var(--tc);
+    color: var(--caccent-i1);
     background: var(--bg5);
 }
 .theme-light
