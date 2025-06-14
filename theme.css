@@ -607,8 +607,8 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
 
 /*=========================================== Active Line Highlight ===================================================*/
 /*Credit goes to @Akifyss on github: https://github.com/Akifyss, https://github.com/Akifyss/obsidian-border */
-.markdown-source-view .cm-content>.cm-active:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent)::after,
-.markdown-source-view .cm-content>.cm-active:not(.image-embed, .mk-header, .HyperMD-header, :has(.mk-note-footer, .collapse-indicator))::after {
+body:not(.disable-line-indicator) .markdown-source-view .cm-content>.cm-active:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent)::after,
+body:not(.disable-line-indicator) .markdown-source-view .cm-content>.cm-active:not(.image-embed, .mk-header, .HyperMD-header, :has(.mk-note-footer, .collapse-indicator))::after {
     content: "";
     position: absolute;
     left: -12px;
@@ -621,8 +621,8 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
     opacity: 1;
 }
 
-.cm-contentContainer .cm-active.HyperMD-list-line:not(.HyperMD-list-line-1)::after,
-.cm-contentContainer .cm-active.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):after {
+body:not(.disable-line-indicator) .cm-contentContainer .cm-active.HyperMD-list-line:not(.HyperMD-list-line-1)::after,
+body:not(.disable-line-indicator) .cm-contentContainer .cm-active.HyperMD-codeblock:not(.HyperMD-codeblock-begin):not(.HyperMD-codeblock-end):after {
     opacity: 1 !important;
     --hover-indicator-color: var(--color-accent) !important;
 }
@@ -635,10 +635,10 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
     position: relative;
 }
 
-.markdown-source-view .cm-content>div:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent)::after,
-.markdown-source-view .cm-content>div:not(.image-embed, .mk-header, .HyperMD-header, :has(.mk-note-footer, .collapse-indicator))::after,
-.markdown-preview-sizer>div:is(.el-ul, .el-ol)::after,
-.markdown-preview-sizer>div:not(:has(.collapse-indicator, .mk-header))::after {
+body:not(.disable-hover-indicator) .markdown-source-view .cm-content>div:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent)::after,
+body:not(.disable-hover-indicator) .markdown-source-view .cm-content>div:not(.image-embed, .mk-header, .HyperMD-header, :has(.mk-note-footer, .collapse-indicator))::after,
+body:not(.disable-hover-indicator) .markdown-preview-sizer>div:is(.el-ul, .el-ol)::after,
+body:not(.disable-hover-indicator) .markdown-preview-sizer>div:not(:has(.collapse-indicator, .mk-header))::after {
     content: "";
     position: absolute;
     left: -12px;
@@ -651,10 +651,10 @@ body:not(.file-icon-remove) .workspace-leaf-content[data-type="bookmarks"] svg.l
     opacity: 1;
 }
 
-.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent):hover::after,
-.workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(.image-embed, .mk-header, .HyperMD-header, :has(.mk-note-footer, .collapse-indicator)):hover::after,
-.workspace-leaf-content:is([data-type="markdown"], [data-type="webviewer"]):not(:has(.document-search-container)) .markdown-preview-sizer>div:is(.el-ul, .el-ol):hover::after,
-.workspace-leaf-content:is([data-type="markdown"], [data-type="webviewer"]):not(:has(.document-search-container)) .markdown-preview-sizer>div:not(:has(.collapse-indicator, .mk-header)):hover::after {
+body:not(.disable-hover-indicator) .workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(:has(.mk-note-footer)):has(.cm-hmd-list-indent):hover::after,
+body:not(.disable-hover-indicator) .workspace-leaf-content[data-type="markdown"] .markdown-source-view .cm-content>div:not(.image-embed, .mk-header, .HyperMD-header, :has(.mk-note-footer, .collapse-indicator)):hover::after,
+body:not(.disable-hover-indicator) .workspace-leaf-content:is([data-type="markdown"], [data-type="webviewer"]):not(:has(.document-search-container)) .markdown-preview-sizer>div:is(.el-ul, .el-ol):hover::after,
+body:not(.disable-hover-indicator) .workspace-leaf-content:is([data-type="markdown"], [data-type="webviewer"]):not(:has(.document-search-container)) .markdown-preview-sizer>div:not(:has(.collapse-indicator, .mk-header)):hover::after {
     height: calc(100% - 6px);
 }
 
@@ -975,7 +975,7 @@ body {
     bottom: 4px !important;
     height: calc(100% - 4px);
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.cm-line {
+body:not(.remove-blockquote-border-offset) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.cm-line {
     border-left: 4px solid transparent;
 }
 .markdown-source-view.mod-cm6 div:not(.HyperMD-quote)+.HyperMD-quote::before,
@@ -1320,4 +1320,32 @@ settings:
         opacity: false
         format: hex
         default: '#none'
+    -
+        id: Indicators
+        title: Indicators
+        type: heading
+        collapsed: ture
+        level: 2
+    - 
+        id: disable-hover-indicator
+        title: Disable Hover Indicator
+        type: class-toggle
+    - 
+        id: disable-line-indicator
+        title: Disable Line Indicator
+        type: class-toggle
+    -
+        id: Blockquotes
+        title: Blockquotes
+        type: heading
+        collapsed: ture
+        level: 2
+    - 
+        id: remove-blockquote-border-offset
+        title: Remove Blockquote Border Offset
+        type: class-toggle
 */
+
+
+
+
