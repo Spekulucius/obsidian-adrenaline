@@ -56,6 +56,13 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 
 
 
+.workspace-leaf-content {
+    --scrollbar-thumb-bg: transparent;
+    &:hover {
+        --scrollbar-thumb-bg: #d3d3d350 !important;
+    }
+}
+
 
 
 
@@ -339,8 +346,10 @@ body:has(.show-ribbon):not(.is-mobile),:has(.workspace-ribbon.side-dock-ribbon) 
 
 
 
-
-
+body > div.app-container > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root .workspace-leaf-resize-handle{
+    height: calc(var(--divider-vertical-height) - var(--header-height)) !important;
+    bottom: 0px !important;
+}
 
 
 /*=================== workspace rounded corners ===================*/
@@ -358,7 +367,9 @@ body:has(.workspace-tabs.mod-active.mod-top.mod-top-left-space.mod-top-right-spa
 }
 .mod-top-left-space .workspace-tab-container {
     border-top-left-radius: 7px !important;
-
+}
+.mod-top-left-space .workspace-tab-container {
+    border-bottom-left-radius: 7px;
 }
 
 .workspace-sidedock-vault-profile {
@@ -1034,7 +1045,7 @@ body {
     background: var(--bg3) !important;
 }
 .theme-dark .callout-title {
-    color: var(--caccent-i1);
+    color: var(--tci);
     background: var(--bg5);
 }
 .theme-dark
