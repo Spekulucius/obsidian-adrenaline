@@ -9,7 +9,10 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 .theme-light, .theme-dark {
     --caccent-i1: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 49%)*-100));
     --caccent-i2: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 67%)*-100));
+    --caccent1: var(--custom-accent, hsl(var(--accent-h), var(--accent-s), var(--accent-l)));
     --caccent2: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5));
+    --s1: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), 5%, .5));
+
 }
 
 .theme-light {
@@ -18,11 +21,15 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg1-h: #bdbdbd;
     --bg1-item: var(--nav-item-color);
     --bg2: #f4f4f4;
-    --caccent1: var(--custom-accent, hsl(var(--accent-h), var(--accent-s), var(--accent-l)));
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 40%), 95%, 100%);
     --bg4: white;
     --bg5: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 90%);
-    --bg6: rgb(240, 240, 240);
+    --bg6: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), var(--accent-l), .2));
+    
+    --hl1: rgba(255, 255, 255, 0.162);
+    --hl2: rgba(214, 214, 214, 0.308);
+
+    --s2: rgba(0, 0, 0, 0.257);
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -40,11 +47,15 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg1-h: var(--caccent1);
     --bg1-item: var(--nav-item-color);
     --bg2: #252525;
-    --caccent1: var(--custom-accent, hsl(var(--accent-h), var(--accent-s), var(--accent-l)));
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 95%), 10%, 100%);
     --bg4: rgb(12, 12, 12);
     --bg5: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 30%);
-    --bg6: rgb(41, 41, 41);
+    --bg6: var(--custom-accent, hsla(var(--accent-h), calc(var(--accent-s) * .1), var(--accent-l), 0.2));
+
+    --hl1: rgba(255, 255, 255, 0.075);
+    --hl2: rgba(255, 255, 255, 0.075);
+
+    --s2: var(--custom-accent, hsla(var(--accent-h), calc(var(--accent-s) * 0), calc(var(--accent-l) * .1), .4));
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -141,9 +152,15 @@ padding-top: 5px !important;
     flex-grow: 100 !important;
     justify-content: center;
     margin-bottom: .1px;
+    margin-top: 0px;
+    padding-top: 8px;
 }
 
-
+.workspace-tabs.mod-top.mod-top-right-space
+.workspace-tab-header-container-inner {
+    margin-top: 0px;
+    padding-top: 8px;
+}
 
 /*============== Ribbon Animation ===========================*/
 .workspace-ribbon.side-dock-ribbon.mod-left {
@@ -170,15 +187,12 @@ padding-top: 5px !important;
     width: 0px;
     height: 27.3px;
     padding: 3px;
-    background: var(--caccent1);
         transition: color .01s, width .5s, background .2s linear normal;
 }
 
 .workspace-ribbon.side-dock-ribbon.mod-left:hover
 .side-dock-ribbon-action {
-    color: unset;
     width: 33.333px;
-    background: var(--bg4);
         transition: background .2s,  color .1s, width .1s ease normal;
     
 }
@@ -187,8 +201,8 @@ padding-top: 5px !important;
 
 
 /*================ Ribbon Sidebar Icon =====================*/
-body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left {
-    width: 20px !important;
+body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button.mod-left {
+    width: 20px;
     transition: .5s;
     padding-top: 6px !important;
     padding-bottom: 6px !important;
@@ -212,11 +226,12 @@ body:not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon {
 
 body:not(.show-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon {
     color: unset;
-    background: transparent;
+    background: var(--bg6);
     width: unset;
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 8px;
+    margin-top: .5px;
 }
 body:not(.show-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon:hover {
     color: var(--color-base-70);
@@ -389,9 +404,7 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-si
 }
 
 
-
-
-    /*corner fix*/
+/*corner fix*/
     .workspace-split.mod-horizontal.mod-sidedock.mod-right-split
     .workspace-leaf {
         background-color: var(--bg2);
@@ -401,17 +414,17 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-si
 
 
 
-/*=============tab headers============*/
+
+
+/*================================= TITLEBAR ================================*/
 body:not(.mod-macos) .mod-vertical .workspace-tab-header-container {
     padding-left: 0px !important;
     padding-bottom: 3px;
 }
-
-.workspace-tab-header-container-inner {
-    justify-content: left !important;
-    padding-left: 10px !important;
+.workspace-split.mod-vertical .workspace-tab-header-container-inner { 
+    margin-top: 5px !important;
+    padding-top: 1.5px !important;
 }
-
 .workspace .mod-root .workspace-tab-header {
     box-shadow: none;
     padding-bottom: 5.5px;
@@ -419,137 +432,235 @@ body:not(.mod-macos) .mod-vertical .workspace-tab-header-container {
     margin-left: 0px;
     padding-left: 0px;
 }
-
-.mod-vertical .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner {
-    background-color: var(--bg6) !important;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
-    border-radius: 5px;
-    &:hover {
-        background-color: var(--caccent1) !important;
-        color: var(--caccent-i1) !important;
-        transition: background-color .2s;
-    }
-}
-
-.mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner {
-    color: var(--caccent-i1) !important;
-    background-color: var(--caccent1) !important;
-    border-radius: 5px;
-}
-.workspace-tab-header.tappable.is-active {
-    margin-bottom: 1px;
-}
+/*tabs AND buttons height adjustment*/
 .workspace-tab-header.tappable {
     margin-top: -2px;
+    margin-bottom: -1px;
 }
-
+/*Tabs text color */
 .mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner-title {
     color: var(--caccent-i1) !important;
 }
-
 .mod-vertical .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner-title {
     color: var(--tci) !important;
 }
 
+/* right sidebar toggle align */
+.sidebar-toggle-button.mod-right {
+    padding-top: 5.5px !important;
+    padding-bottom: 5.5px !important;
+}
 
 
 
-.mod-top-left-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner,
-.mod-top-right-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner {
+
+
+
+/*=========================================== buttons ===================================================*/
+
+/*=============================================================================*/
+.mod-cta {
+    position: relative !important;
+}
+
+.ainput-right-decorator.clickable-icon:before {
+    display: none !important;
+}
+
+
+.mod-cta:before,
+.setting-item-control > button:before,
+.clickable-icon:not(.workspace-drawer-vault-actions > .clickable-icon):before,
+.tree-item-self.nav-file-title.tappable.is-clickable.is-active:after,
+.mod-vertical .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner:before,
+.mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner:before,
+.callout-title:before {
+    content: "";
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    background-color: transparent;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 2px;
+    left: 1.5px;
+    box-shadow: 0px 0px 0px 1px var(--hl1);
+} 
+.workspace-split.mod-horizontal.mod-sidedock.mod-left-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner:before,
+.workspace-split.mod-horizontal.mod-sidedock.mod-right-split .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner:before,
+.workspace-split.mod-horizontal.mod-sidedock.mod-left-split .workspace-tabs.mod-top.mod-top-left-space  .workspace-tab-header.tappable.is-active .workspace-tab-header-inner:before,
+.workspace-split.mod-horizontal.mod-sidedock.mod-right-split .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-inner:before {
+    content: "";
+    width: calc(100% - 2px);
+    height: calc(100% - 4px);
+    background-color: transparent;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 3px;
+    left: 1px;
+    box-shadow: 0px 0px 0px 1px var(--hl2);
+}
+
+/*=============================================================================*/
+
+
+/*=================================== BOXY BUTTONS ===================================*/
+.clickable-icon:not(.input-right-decorator.clickable-icon) {
+    position: relative;
     --text-color: var(--caccent-i1) !important;
-    background-color: var(--bg6) !important;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    background-color: var(--bg6);
+    border-bottom: 2px solid var(--s2);
     border-radius: 5px;
+    transition: all .5s;
     &:hover {
         background-color: var(--caccent1) !important;
         color: var(--caccent-i1) !important;
-        transition: background-color .2s;
+        border-bottom: 2px solid var(--s1);
     }
 }
-
-.mod-top-left-space .workspace-tab-header.tappable.is-active .workspace-tab-header-inner,
-.mod-top-right-space .workspace-tab-header.tappable.is-active .workspace-tab-header-inner {
-    background: var(--bg1);
-    color: var(--caccent-i1) !important;
-    background-color: var(--caccent1) !important;
-    border-radius: 5px;
-}
-
-.workspace-tab-header.tappable.is-active .workspace-tab-header-inner-icon,
-.workspace-tab-header.tappable.is-active.mod-active .workspace-tab-header-inner-icon {
-    color: var(--caccent-i1);
-}
-
-.workspace-tab-header.tappable:not(.is-active):hover .workspace-tab-header-inner-icon {
-    color: var(--caccent-i1);
-}
-
-
-/*=========================================== SETTINGS TAB ===================================================*/
-/*========= button text color ===========*/
-.checkbox-container.is-enabled::after {
-    background-color: var(--caccent-i2);
-    transition: .2s;
-}
-
 .setting-item-control > button, .dropdown {
+    position: relative;
     --text-color: var(--caccent-i1) !important;
     background-color: var(--caccent2) !important;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-bottom: 2px solid var(--s1);
     border-radius: 5px;
     transition: all .2s;
     &:hover {
         background-color: var(--caccent1) !important;
-        border-bottom: 2px solid rgba(0, 0, 0, 0.251);
-        transition: background-color .2s;
+        border-bottom: 2px solid var(--s1);
+    }
+}
+/*selected file styling */
+.tree-item-self.nav-file-title.tappable.is-clickable.is-active {
+    position: relative !important;
+    color: var(--caccent-i2) !important;
+    background-color: var(--caccent2);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color .5s;
+        &:hover {
+        background-color: var(--caccent1) !important;
+        border-bottom: 2px solid var(--s1);
     }
 }
 
-
-
-/* BUTTONS */
-.clickable-icon {
-    --text-color: var(--caccent-i1) !important;
-    background-color: var(--bg6);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+/* Nav buttons left and right split */
+/*not active*/
+.workspace-split.mod-horizontal.mod-sidedock.mod-left-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner,
+.workspace-split.mod-horizontal.mod-sidedock.mod-right-split .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner {
+    background-color: var(--bg6) !important;
+    border-bottom: 2px solid var(--s2);
     border-radius: 5px;
+    transition: all .5s !important;
     &:hover {
         background-color: var(--caccent1) !important;
         color: var(--caccent-i1) !important;
-        transition: background-color .2s;
+        border-bottom: 2px solid var(--s1);
     }
 }
+/*active*/
+.workspace-split.mod-horizontal.mod-sidedock.mod-left-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header.tappable.is-active .workspace-tab-header-inner,
+.workspace-split.mod-horizontal.mod-sidedock.mod-right-split .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-inner {
+    background-color: var(--caccent2) !important;
+    border-bottom: 2px solid var(--s1);
+    border-radius: 5px;
+    transition: all .5s !important;
+        &:hover {
+        background-color: var(--caccent1) !important;
+    }
+}
+/*Tab headers*/
+.mod-vertical .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner {
+    position: relative;
+    background-color: var(--bg6) !important;
+    border-bottom: 2px solid var(--s2);
+    border-radius: 5px;
+    transition: all .5s !important;
+        &:hover {
+        background-color: var(--caccent1) !important;
+        color: var(--caccent-i1) !important;
+        border-bottom: 2px solid var(--s1);
+        }
+}
+.mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner {
+    position: relative;
+    color: var(--caccent-i1) !important;
+    background-color: var(--caccent2) !important;
+    border-bottom: 2px solid var(--s1);
+    border-radius: 5px;
+    transition: all .5s !important;
+        &:hover {
+        background-color: var(--caccent1) !important;
+        color: var(--caccent-i1) !important;
+    }
+}
+.workspace-tab-header-inner-close-button {
+    color: var(--caccent-i1) !important;
+    background-color: rgba(255, 255, 255, 0.355) !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.303);
+    margin-top: 1px;
+    transition: all .2s !important;
+            &:hover {
+        background-color: rgba(255, 255, 255, 0.7) !important;
+        color: var(--caccent-i1) !important;
+    }
+}
+
+
+
+
+
+
+.workspace-split.mod-horizontal.mod-sidedock.mod-left-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner:hover > *,
+.workspace-split.mod-horizontal.mod-sidedock.mod-right-split .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner:hover > *,
+.workspace-split.mod-horizontal.mod-sidedock.mod-left-split .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header.tappable.is-active .workspace-tab-header-inner:hover > *,
+.workspace-split.mod-horizontal.mod-sidedock.mod-right-split .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-inner:hover > * {
+    color: var(--caccent-i1);
+    transition: color .5s;
+}
+
+
+
+
+
+
+
+/* collapsed ribbon icon color/background */
 .workspace-ribbon.side-dock-ribbon.mod-left .clickable-icon {
     background-color: var(--bg5);
 }
-
-
+/* extended ribbon icon color/background */
 .workspace-ribbon.side-dock-ribbon.mod-left:hover .clickable-icon {
     --text-color: var(--caccent-i1) !important;
     background-color: var(--bg6);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-bottom: 2px solid var(--s2);
     border-radius: 5px;
 }
 
-.tree-item-self.nav-file-title.tappable.is-clickable.is-active {
-    color: var(--caccent-i1) !important;
-    background-color: var(--caccent1);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
-    border-radius: 5px;
 
-}
 
+
+
+
+
+/* vault icons - removal of added styling */
 .workspace-drawer-vault-actions .clickable-icon {
     border: none;
     background-color: transparent;
 }
 
 
+
+/* settings switches background */
 .checkbox-container.is-enabled {
     background-color: var(--caccent2);
 }
 
-
+/* settings switches auto coloring */
+.checkbox-container.is-enabled::after {
+    background-color: var(--caccent-i2);
+    transition: .2s;
+}
 
 
 /*=========================================== Nav File Icons ===================================================*/
@@ -890,7 +1001,7 @@ body.heading-highlighting .markdown-rendered h5,
 body.heading-highlighting .markdown-rendered h6 {
     color: var(--caccent-i1) !important;
     background-color: var(--caccent1);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-bottom: 2px solid var(--s1);
     border-radius: 5px;
     transition: all .2s;
     margin-left: 0px !important;
@@ -1040,29 +1151,27 @@ li {
 .is-live-preview
 .HyperMD-quote:before {
     content: '';
-    box-shadow: 0 0 10px black;
+    box-shadow: 2px 3px 5px 5px rgba(0, 0, 0, 0.462);
     z-index: -1;
     position: absolute;
     width: 100% !important;
-    left: -8px !important;
-    top: 1.5px !important;
-    padding-left: 4px;
-    height: 95%;
-       
+    left: -7px !important;
+    top: 1px !important;
+    height: 75%;
+    border: none !important;
 }
 .theme-light
 .is-live-preview
 .HyperMD-quote:before {
     content: '';
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.27);
+    box-shadow: 2px 3px 6px 3px rgba(0, 0, 0, 0.462);
     z-index: -1;
     position: absolute;
     width: 100% !important;
-    left: -8px !important;
-    top: 1.5px !important;
-    padding-left: 4px;
-    height: 95%;
-       
+    left: -7px !important;
+    top: 1px !important;
+    height: 75%;
+    border: none !important;
 }
 
 /*blockquote padding*/
@@ -1110,7 +1219,7 @@ ul.has-list-bullet * blockquote {
 .theme-dark
 .callout {
     color: inherit;
-    background: var(--background-alt-dark);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
     box-shadow: 0px 0px 0px 1px var(--divider-color);
     margin-top: 7px;
     --callout-padding: 0;
@@ -1127,6 +1236,7 @@ ul.has-list-bullet * blockquote {
     background: var(--bg3) !important;
 }
 .theme-dark .callout-title {
+    position: relative;
     color: var(--tci);
     background: var(--bg5);
     border-bottom: 2px solid rgba(0, 0, 0, 0.251);
@@ -1162,9 +1272,10 @@ ul.has-list-bullet * blockquote {
     background: var(--bg1_2) !important;
 }
 .theme-light .callout-title {
+    position: relative;
     color: var(--caccent-i1);
     background: var(--bg5);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-bottom: 2px solid var(--s1);
     border-radius: 5px;
 }
 .theme-light
@@ -1188,6 +1299,8 @@ ul.has-list-bullet * blockquote {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
 }
+
+
 
 /*=========== No Callout Icon ===========*/
 .callout-icon:not(.el-div .callout[data-callout="c"] .callout-icon) {
@@ -1292,7 +1405,6 @@ body:not(.show-ribbon).mod-macos .workspace-tabs.mod-top.mod-top-left-space .wor
 body.mod-macos .sidebar-toggle-button.mod-right {
     background: transparent !important;
 }
-
 
 
 /*========== STYLE SETTINGS ================*/
