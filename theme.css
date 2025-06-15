@@ -439,7 +439,7 @@ body:not(.mod-macos) .mod-vertical .workspace-tab-header-container {
 }
 /*Tabs text color */
 .mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner-title {
-    color: var(--caccent-i1) !important;
+    color: var(--caccent-i2) !important;
 }
 .mod-vertical .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner-title {
     color: var(--tci) !important;
