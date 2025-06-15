@@ -899,15 +899,16 @@ body.heading-highlighting .markdown-rendered h6 {
     border-left: none;
 }
 
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1:has(.active-sentence),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2:has(.active-sentence),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3:has(.active-sentence),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4:has(.active-sentence),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5:has(.active-sentence),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6:has(.active-sentence) {
-    background-color: transparent;
-    border-bottom: 2px solid transparent;
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1:is(.cm-active),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2:is(.cm-active),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3:is(.cm-active),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4:is(.cm-active),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5:is(.cm-active),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6:is(.cm-active) {
+    background-color: transparent !important;
+    border-bottom: 2px solid transparent !important;
     transition: all .2s;
+    color: var(--tci) !important;
 }
 
 
