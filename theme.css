@@ -645,8 +645,8 @@ body:not(.mod-macos) .mod-vertical .workspace-tab-header-container {
 
 /* vault icons - removal of added styling */
 .workspace-drawer-vault-actions .clickable-icon {
-    border: none;
-    background-color: transparent;
+    border: none !important;
+    background-color: transparent !important;
 }
 
 
