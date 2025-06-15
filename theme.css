@@ -12,7 +12,6 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --caccent1: var(--custom-accent, hsl(var(--accent-h), var(--accent-s), var(--accent-l)));
     --caccent2: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5));
     --s1: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), 5%, .5));
-
 }
 
 .theme-light {
@@ -30,6 +29,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --hl2: rgba(214, 214, 214, 0.308);
 
     --s2: rgba(0, 0, 0, 0.257);
+    --s3: rgba(0, 0, 0, 0.227);
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -56,6 +56,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --hl2: rgba(255, 255, 255, 0.075);
 
     --s2: var(--custom-accent, hsla(var(--accent-h), calc(var(--accent-s) * 0), calc(var(--accent-l) * .1), .4));
+    --s3: rgba(0, 0, 0, 0.47);
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -597,7 +598,7 @@ body:not(.mod-macos) .mod-vertical .workspace-tab-header-container {
 .workspace-tab-header-inner-close-button {
     color: var(--caccent-i1) !important;
     background-color: rgba(255, 255, 255, 0.355) !important;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.303);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.634);
     margin-top: 1px;
     transition: all .2s !important;
             &:hover {
@@ -1163,31 +1164,16 @@ li {
 
 
 /*BLOCKQUOTE PREVIEW VIEW SHADOW*/
-.theme-dark
 .is-live-preview
 .HyperMD-quote:before {
     content: '';
-    box-shadow: 2px 3px 5px 5px rgba(0, 0, 0, 0.462);
+    box-shadow: .5px .5px 3px 1px var(--s3);
     z-index: -1;
     position: absolute;
-    width: 100% !important;
-    left: -7px !important;
-    top: 1px !important;
-    height: 75%;
-    border: none !important;
-}
-.theme-light
-.is-live-preview
-.HyperMD-quote:before {
-    content: '';
-    box-shadow: 2px 3px 6px 3px rgba(0, 0, 0, 0.462);
-    z-index: -1;
-    position: absolute;
-    width: 100% !important;
-    left: -7px !important;
-    top: 1px !important;
-    height: 75%;
-    border: none !important;
+    width: calc(100% + 8px) !important;
+    left: -9px !important;
+    border: 0px solid transparent !important;
+    border-radius: 5px;
 }
 
 /*blockquote padding*/
@@ -1203,13 +1189,8 @@ li {
 }
 
 /*BLOCKQUOTE COLORS AND SHADOWS*/
-.theme-light
 blockquote {
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.27))
-}
-.theme-dark
-blockquote {
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.596))
+    filter: drop-shadow(0 0 2px var(--s3))
 }
 
 
