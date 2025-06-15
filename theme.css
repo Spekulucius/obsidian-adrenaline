@@ -45,7 +45,6 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg4: rgb(12, 12, 12);
     --bg5: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 30%);
     --bg6: rgb(41, 41, 41);
-    --bg7: red;
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -1014,109 +1013,95 @@ li {
 
 
 
-/*===================================== Blockquotes =====================================*/
-/*Credit goes to @Akifyss on github: https://github.com/Akifyss, https://github.com/Akifyss/obsidian-border */
-body {
-    --background-alt-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='0.12' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-    --background-alt-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.12' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-}
-body {
-    --blockquote-border-thickness: 3px;
-    --blockquote-border-color: var(--interactive-accent);
-    --blockquote-font-style: normal;
-    --blockquote-color: inherit;
-    --blockquote-background-color: transparent;
-    --blockquote-background-light: var(--background-alt-light);
-    --blockquote-background-dark: var(--background-alt-dark);
-}
-.theme-light .markdown-source-view .cm-scroller .cm-line.HyperMD-quote,
-.theme-light .markdown-rendered blockquote {
-    border-radius: var(--radius-s);
-    background: var(--blockquote-background-light);
-}
-.theme-dark .markdown-source-view .cm-scroller .cm-line.HyperMD-quote,
-.theme-dark .markdown-rendered blockquote {
-    border-radius: var(--radius-s);
-    background: var(--blockquote-background-dark);
-}
+
+
+/*======================================== BLOCKQUOTES ================================*/
+/*preview mode */
 .markdown-rendered blockquote,
+.blockquote,
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote{
+    border-radius: 5px;
+    background-color: var(--bg2);
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    border-left: 10px solid var(--caccent1);
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .cm-line {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+
+
+/*BLOCKQUOTE PREVIEW VIEW SHADOW*/
+.theme-dark
+.is-live-preview
+.HyperMD-quote:before {
+    content: '';
+    box-shadow: 0 0 10px black;
+    z-index: -1;
+    position: absolute;
+    width: 100% !important;
+    left: -8px !important;
+    top: 2.5px !important;
+    padding-left: 4px;
+    height: 95%;
+       
+}
+.theme-light
+.is-live-preview
+.HyperMD-quote:before {
+    content: '';
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.27);
+    z-index: -1;
+    position: absolute;
+    width: 100% !important;
+    left: -8px !important;
+    top: 2.5px !important;
+    padding-left: 4px;
+    height: 95%;
+       
+}
+
+/*blockquote padding*/
 .markdown-preview-view blockquote {
-    position: relative;
+    padding-left: .5em;
+    padding-right: .5em;
 }
-.markdown-rendered blockquote::before,
-.markdown-preview-view blockquote::before {
-    content: "";
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    height: calc(100% - 8px);
-    width: var(--blockquote-border-thickness);
-    background-color: var(--blockquote-border-color);
-    border-radius: 24px;
+
+/*reading mode*/
+.markdown-preview-view blockquote {
+    border-inline-width: 10px;
+    border-radius: 5px;
 }
-.markdown-rendered blockquote {
-    border-left: none;
+
+/*BLOCKQUOTE COLORS AND SHADOWS*/
+.theme-light
+blockquote {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.27))
 }
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote::before {
-    content: "";
-    width: var(--blockquote-border-thickness) !important;
-    border-left: none !important;
-    background-color: var(--blockquote-border-color);
-    border-radius: 24px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    color: transparent;
-    position: absolute;
-    left: 0px !important;
-    bottom: 4px !important;
-    height: calc(100% - 4px);
-}
-body:not(.remove-blockquote-border-offset) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote.cm-line {
-    border-left: 4px solid transparent;
-}
-.markdown-source-view.mod-cm6 div:not(.HyperMD-quote)+.HyperMD-quote::before,
-.markdown-source-view.mod-cm6 .cm-content :first-child:is(.HyperMD-quote)::before {
-    top: 4px !important;
-    height: calc(100% - 4px);
-    border-radius: 24px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-.markdown-source-view.mod-cm6 div:not(.HyperMD-quote)+.HyperMD-quote:not(:has(+ .HyperMD-quote))::before,
-.markdown-source-view.mod-cm6 .cm-content :first-child:is(.HyperMD-quote):not(:has(+ .HyperMD-quote))::before {
-    bottom: 4px !important;
-    top: 4px !important;
-    height: calc(100% - 8px);
-    border-radius: 24px;
-}
-.markdown-source-view.mod-cm6 .HyperMD-quote:has(+ .HyperMD-quote)::before {
-    bottom: 0px !important;
-    height: 100%;
-    border-radius: 0px;
-}
-.markdown-source-view.mod-cm6 .HyperMD-quote {
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-    border-bottom-left-radius: var(--radius-s) !important;
-    border-bottom-right-radius: var(--radius-s) !important;
-}
-.markdown-source-view.mod-cm6 div:not(.HyperMD-quote)+.HyperMD-quote,
-.markdown-source-view.mod-cm6 .cm-content :first-child:is(.HyperMD-quote) {
-    border-top-left-radius: var(--radius-s) !important;
-    border-top-right-radius: var(--radius-s) !important;
-}
-.markdown-source-view.mod-cm6 .HyperMD-quote:has(+ .HyperMD-quote) {
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
+.theme-dark
+blockquote {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.596))
 }
 
 
 
+/*BLOCKQUOTE PREVIEW VIEW BORDER FIX*/
+.HyperMD-quote + .HyperMD-quote {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+.HyperMD-quote:has(+.HyperMD-quote) {
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
 
 
-
-
-
+ul.has-list-bullet * blockquote {
+    margin-top: 0;
+}
 
 
 
@@ -1143,6 +1128,8 @@ body:not(.remove-blockquote-border-offset) .markdown-source-view.mod-cm6.is-live
 .theme-dark .callout-title {
     color: var(--tci);
     background: var(--bg5);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
 }
 .theme-dark
 .cm-callout {
@@ -1176,6 +1163,8 @@ body:not(.remove-blockquote-border-offset) .markdown-source-view.mod-cm6.is-live
 .theme-light .callout-title {
     color: var(--caccent-i1);
     background: var(--bg5);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
 }
 .theme-light
 .cm-callout {
@@ -1439,16 +1428,6 @@ settings:
         title: Disable Line Indicator
         type: class-toggle
     -
-        id: Blockquotes
-        title: Blockquotes
-        type: heading
-        collapsed: ture
-        level: 2
-    - 
-        id: remove-blockquote-border-offset
-        title: Remove Blockquote Border Offset
-        type: class-toggle
-    -
         id: heading-highlighting
         title: Highlight Headings
         type: heading
@@ -1474,6 +1453,9 @@ settings:
 
 
 
+
+
+/*====================================================== ADDITIONS ========================================================================*/
 
 /*======== Ninja Cursor Enhancement ===========*/
 /*credit goes to the people in this thread: https://forum.obsidian.md/t/options-to-modify-cursor-style/1091/41?page=2 */
@@ -1577,3 +1559,9 @@ pointer-events: none !important;
     height: 100%;
     pointer-events: none !important;
 }
+
+
+
+
+
+
