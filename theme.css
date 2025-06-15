@@ -9,6 +9,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 .theme-light, .theme-dark {
     --caccent-i1: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 49%)*-100));
     --caccent-i2: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 67%)*-100));
+    --caccent2: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5));
 }
 
 .theme-light {
@@ -21,6 +22,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 40%), 95%, 100%);
     --bg4: white;
     --bg5: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 90%);
+    --bg6: rgb(240, 240, 240);
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -42,6 +44,8 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 95%), 10%, 100%);
     --bg4: rgb(12, 12, 12);
     --bg5: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 30%);
+    --bg6: rgb(41, 41, 41);
+    --bg7: red;
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -111,18 +115,24 @@ div.nav-buttons-container {
 
 div.nav-header:hover
 div.nav-buttons-container {
-    column-gap: 0px !important;
-    background: var(--bg1);
+    column-gap: 2px !important;
     border-radius: 5px;
     transition: .1s all;
 }
 
 div.nav-header
 .clickable-icon:hover {
-    background: var(--caccent1) !important;
     transition: all .2s;
     color: var(--caccent-i2) !important;
 }
+
+
+
+.sidebar-toggle-button {
+padding-bottom: 6px !important;
+padding-top: 5px !important;
+}
+
 
 
 
@@ -163,15 +173,15 @@ div.nav-header
     padding: 3px;
     background: var(--caccent1);
         transition: color .01s, width .5s, background .2s linear normal;
-
 }
 
 .workspace-ribbon.side-dock-ribbon.mod-left:hover
 .side-dock-ribbon-action {
     color: unset;
     width: 33.333px;
-    background: none;
+    background: var(--bg4);
         transition: background .2s,  color .1s, width .1s ease normal;
+    
 }
 
 
@@ -181,8 +191,8 @@ div.nav-header
 body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .sidebar-toggle-button.mod-left {
     width: 20px !important;
     transition: .5s;
-    padding-top: 7px;
-    padding-bottom: 6px;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
 }
 
 
@@ -196,7 +206,6 @@ body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .workspace-ribbon.s
 
 body:not(.mod-macos) .sidebar-toggle-button.mod-left>.clickable-icon {
     color: transparent;
-    background: var(--caccent1);
     width: 0px;
     padding: 3px;
         transition: color .01s, width .5s, background .2s linear normal;
@@ -219,7 +228,7 @@ body:not(.mod-macos)
 .sidebar-toggle-button.mod-left>.clickable-icon {
     color: var(--nav-item-color);
     width: 33.333px;
-    background: transparent;
+    background: var(--bg6);
         transition: background .2s,  color .1s, width .1s ease normal;
 }
 
@@ -368,7 +377,7 @@ body:has(.workspace-tabs.mod-active.mod-top.mod-top-left-space.mod-top-right-spa
 .mod-top-left-space .workspace-tab-container {
     border-top-left-radius: 7px !important;
 }
-.mod-top-left-space .workspace-tab-container {
+.mod-top-left-space.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed .workspace-tab-container {
     border-bottom-left-radius: 7px;
 }
 
@@ -386,34 +395,7 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-si
     /*corner fix*/
     .workspace-split.mod-horizontal.mod-sidedock.mod-right-split
     .workspace-leaf {
-        background: transparent;
-    }
-
-    body:has(.workspace-split.mod-horizontal.mod-sidedock.mod-right-split):not(body:has(.workspace-split.mod-horizontal.mod-sidedock.mod-right-split.is-sidedock-collapsed)) .mod-top-right-space .workspace-leaf-content {
-        animation: background-color1 1s;
-        animation-fill-mode: forwards;
-    }
-
-    body:has(.workspace-split.mod-horizontal.mod-sidedock.mod-right-split.is-sidedock-collapsed) .mod-top-right-space .workspace-leaf-content {
-        animation: background-color2 0s;
-    }
-    @keyframes background-color1 {
-        0% {
-            background-color: transparent;
-        }
-
-        100% {
-            background-color: var(--bg2);
-        }
-    }
-    @keyframes background-color2 {
-        0% {
-            background-color: var(--bg2);
-        }
-
-        100% {
-            background-color: transparent;
-        }
+        background-color: var(--bg2);
     }
 
 
@@ -421,8 +403,9 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-si
 
 
 /*=============tab headers============*/
-body:not(.mod-macos) .workspace-tab-header-container {
+body:not(.mod-macos) .mod-vertical .workspace-tab-header-container {
     padding-left: 0px !important;
+    padding-bottom: 3px;
 }
 
 .workspace-tab-header-container-inner {
@@ -432,67 +415,140 @@ body:not(.mod-macos) .workspace-tab-header-container {
 
 .workspace .mod-root .workspace-tab-header {
     box-shadow: none;
-    padding-bottom: 7px;
+    padding-bottom: 5.5px;
     background: transparent;
     margin-left: 0px;
     padding-left: 0px;
 }
 
-.workspace .mod-root .workspace-tab-header-inner {
-    background: var(--bg1) !important;
-
+.mod-vertical .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner {
+    background-color: var(--bg6) !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
+    &:hover {
+        background-color: var(--caccent1) !important;
+        color: var(--caccent-i1) !important;
+        transition: background-color .2s;
+    }
 }
 
-.workspace .mod-root .workspace-tab-header.is-active
-.workspace-tab-header-inner {
-    background: var(--bg4) !important;
+.mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner {
+    color: var(--caccent-i1) !important;
+    background-color: var(--caccent1) !important;
+    border-radius: 5px;
+}
+.workspace-tab-header.tappable.is-active {
+    margin-bottom: 1px;
+}
+.workspace-tab-header.tappable {
+    margin-top: -2px;
+}
+
+.mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner-title {
+    color: var(--caccent-i1) !important;
+}
+
+.mod-vertical .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner-title {
+    color: var(--tci) !important;
 }
 
 
 
 
+.mod-top-left-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner,
+.mod-top-right-space .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner {
+    --text-color: var(--caccent-i1) !important;
+    background-color: var(--bg6) !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
+    &:hover {
+        background-color: var(--caccent1) !important;
+        color: var(--caccent-i1) !important;
+        transition: background-color .2s;
+    }
+}
 
+.mod-top-left-space .workspace-tab-header.tappable.is-active .workspace-tab-header-inner,
+.mod-top-right-space .workspace-tab-header.tappable.is-active .workspace-tab-header-inner {
+    background: var(--bg1);
+    color: var(--caccent-i1) !important;
+    background-color: var(--caccent1) !important;
+    border-radius: 5px;
+}
 
+.workspace-tab-header.tappable.is-active .workspace-tab-header-inner-icon,
+.workspace-tab-header.tappable.is-active.mod-active .workspace-tab-header-inner-icon {
+    color: var(--caccent-i1);
+}
 
-
-
-
-
-
-
-
+.workspace-tab-header.tappable:not(.is-active):hover .workspace-tab-header-inner-icon {
+    color: var(--caccent-i1);
+}
 
 
 /*=========================================== SETTINGS TAB ===================================================*/
 /*========= button text color ===========*/
-button {
-    --text-color: var(--caccent-i1) !important;
-    background-color: var(--caccent1);
-    transition: all .2s;
-    &:hover {
-        --text-color: black !important;
-    }
-}
-
-select,
-.dropdown {
-    --text-normal: var(--caccent-i1) !important;
-    &:hover {
-        --text-normal: var(--tci) !important;
-    }
-}
-
-
 .checkbox-container.is-enabled::after {
-    background-color: var(--caccent-i1);
+    background-color: var(--caccent-i2);
     transition: .2s;
 }
 
+.setting-item-control > button, .dropdown {
+    --text-color: var(--caccent-i1) !important;
+    background-color: var(--caccent2) !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
+    transition: all .2s;
+    &:hover {
+        background-color: var(--caccent1) !important;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+        transition: background-color .2s;
+    }
+}
 
 
 
+/* BUTTONS */
+.clickable-icon {
+    --text-color: var(--caccent-i1) !important;
+    background-color: var(--bg6);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
+    &:hover {
+        background-color: var(--caccent1) !important;
+        color: var(--caccent-i1) !important;
+        transition: background-color .2s;
+    }
+}
+.workspace-ribbon.side-dock-ribbon.mod-left .clickable-icon {
+    background-color: var(--bg5);
+}
 
 
+.workspace-ribbon.side-dock-ribbon.mod-left:hover .clickable-icon {
+    --text-color: var(--caccent-i1) !important;
+    background-color: var(--bg6);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
+}
+
+.tree-item-self.nav-file-title.tappable.is-clickable.is-active {
+    color: var(--caccent-i1) !important;
+    background-color: var(--caccent1);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
+
+}
+
+.workspace-drawer-vault-actions .clickable-icon {
+    border: none;
+    background-color: transparent;
+}
+
+
+.checkbox-container.is-enabled {
+    background-color: var(--caccent2);
+}
 
 
 
@@ -740,7 +796,6 @@ body {
     color: var(--custom-h1-color, var(--general-heading-color, unset));
 }
 
-
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2 {
     margin-bottom: 0px !important;
     border-left: 3px dashed var(--caccent1);
@@ -763,14 +818,20 @@ body {
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h4-color, var(--general-heading-color, unset));
+    padding-top: 0 !important;
+    margin-top: .9em !important;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h5-color, var(--general-heading-color, unset));
+    padding-top: 0 !important;
+    margin-top: .9em !important;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h6-color, var(--general-heading-color, unset));
+    padding-top: 0 !important;
+    margin-top: .9em !important;
 }
 
 
@@ -813,6 +874,41 @@ body {
     margin-bottom: 0px !important;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h6-color, var(--general-heading-color, unset));
+}
+
+
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1,
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2,
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3,
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4,
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5,
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6,
+body.heading-highlighting .markdown-rendered h1,
+body.heading-highlighting .markdown-rendered h2,
+body.heading-highlighting .markdown-rendered h3,
+body.heading-highlighting .markdown-rendered h4,
+body.heading-highlighting .markdown-rendered h5,
+body.heading-highlighting .markdown-rendered h6 {
+    color: var(--caccent-i1) !important;
+    background-color: var(--caccent1);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.251);
+    border-radius: 5px;
+    transition: all .2s;
+    margin-left: 0px !important;
+    padding-left: 5px !important;
+    left: 0;
+    border-left: none;
+}
+
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1:has(.active-sentence),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2:has(.active-sentence),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3:has(.active-sentence),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4:has(.active-sentence),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5:has(.active-sentence),
+body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6:has(.active-sentence) {
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+    transition: all .2s;
 }
 
 
@@ -1186,6 +1282,14 @@ body.mod-windows .sidebar-toggle-button.mod-right {
     margin-right: 5px;
 }
 
+
+/*increase popup size*/
+.theme-light, .theme-dark {
+    --popover-width: 1050px;
+    --popover-height: 1250px;
+}
+
+
 /*================= MACOS ==================*/
 body.mod-macos .workspace-tabs.mod-top.mod-top-left-space .workspace-tab-header-container {
     padding-left: calc(var(--size-4-2) + var(--frame-left-space) + 10px) !important;
@@ -1344,8 +1448,132 @@ settings:
         id: remove-blockquote-border-offset
         title: Remove Blockquote Border Offset
         type: class-toggle
+    -
+        id: heading-highlighting
+        title: Highlight Headings
+        type: heading
+        collapsed: ture
+        level: 2
+    - 
+        id: heading-highlighting
+        title: Highlight Headings
+        type: class-toggle
+    -
+        id: grainy-background
+        title: grainy-background
+        type: heading
+        collapsed: ture
+        level: 2
+    - 
+        id: grainy-background
+        title: grainy-background
+        type: class-toggle
 */
 
 
 
 
+
+
+/*======== Ninja Cursor Enhancement ===========*/
+/*credit goes to the people in this thread: https://forum.obsidian.md/t/options-to-modify-cursor-style/1091/41?page=2 */
+body.is-focused
+.x-cursor {
+    position:flex;
+    opacity: 1;
+    background: transparent;
+    backdrop-filter: invert(100%);
+    filter: grayscale(100%);
+    width: calc(var(--cursor-height) * .5);
+    left: calc(var(--cursor-height) * -.5);
+    height: calc(2px + var(--cursor-height));
+    max-height: 2rem;
+    max-width: 17px;
+    top: calc(0px - var(--header-height));
+    transition: all .07s;
+}
+.cursorWrapper .x-cursor::after {
+    display: none;
+}
+.cursorWrapper .x-cursor0,
+.cursorWrapper .x-cursor1 {
+    animation: blink1 1s 0s both infinite;
+}
+body:has(.x-cursor) .cm-editor * {
+caret-color: transparent;
+}
+
+
+
+
+/*======== GRAINY BACKGROUND =========*/
+/*DARK THEME*/
+.theme-dark.grainy-background div.app-container:before,
+.theme-dark.grainy-background .titlebar-button-container:before
+ {
+content: "";
+background-color: var(--caccent2);
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+background-repeat: repeat;
+background-size: 182px;
+opacity: var(--noise-opacity, .05);
+top: 0;
+left: 0;
+position: absolute;
+width: 100%;
+height: 100%;
+pointer-events: none !important;
+}
+
+/*MACOS FIX*/
+.theme-dark.grainy-background .mod-macos.theme-dark .workspace-tab-header-container:not(.workspace-split):before
+{
+    content: "";
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 182px;
+    opacity: var(--noise-opacity-dm, .05);
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none !important;
+}
+
+
+/*LIGHT THEME*/
+.theme-light.grainy-background div.app-container:before,
+.theme-light.grainy-background .titlebar-button-container:before
+ {
+content: "";
+background-color: transparent;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+background-repeat: repeat;
+background-size: 182px;
+opacity: var(--noise-opacity-lm, .5);
+top: 0;
+left: 0;
+position: absolute;
+width: 100%;
+height: 100%;
+pointer-events: none !important;
+}
+
+/*MACOS FIX*/
+.theme-light.grainy-background .mod-macos.theme-dark .workspace-tab-header-container:not(.workspace-split):before
+{
+    content: "";
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 182px;
+    opacity: var(--noise-opacity-lm, .5);
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none !important;
+}
