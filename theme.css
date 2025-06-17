@@ -12,6 +12,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --caccent1: var(--custom-accent, hsl(var(--accent-h), var(--accent-s), var(--accent-l)));
     --caccent2: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5));
     --s1: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), 5%, .5));
+    --custom-accent-bold: var(--caccent1);
 }
 
 .theme-light {
@@ -1447,7 +1448,7 @@ settings:
         step: .1
     -
         id: dynamic-heading-spacing
-        title: Adjust Dynamix Heading Spacing
+        title: Adjust Dynamic Heading Spacing
         description:
         type: variable-number-slider
         format: em
@@ -1469,18 +1470,18 @@ settings:
         format: hex
         default: '#none'
     -
-        id: general-heading-color
-        title: Heading Color
-        type: variable-color
-        opacity: false
-        format: hex
-        default: '#none'
-    -
         id: Individual Heading Colors
         title: Individual Heading Colors
         type: heading
         collapsed: ture
         level: 3
+    -
+        id: general-heading-color
+        title: General Heading Color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
     -
         id: custom-h1-color
         title: Custom H1 color
@@ -1523,6 +1524,40 @@ settings:
         opacity: false
         format: hex
         default: '#none'
+    -
+        id: Individual Bold Color
+        title: Individual Bold Color
+        type: heading
+        collapsed: ture
+        level: 3
+    - 
+        id: custom-accent-bold
+        title: Set Bold Color to Accent Color
+        type: class-toggle
+    -
+        id: custom-bold
+        title: Custom Bold Color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'
+    -
+        id: Individual Italic Color
+        title: Individual Italic Color
+        type: heading
+        collapsed: ture
+        level: 3
+    - 
+        id: custom-accent-italic
+        title: Set Italic Color to Accent Color
+        type: class-toggle
+    -
+        id: custom-italic
+        title: Custom Italic Color
+        type: variable-color
+        opacity: false
+        format: hex
+        default: '#none'    
     -
         id: Indicators
         title: Indicators
@@ -1567,6 +1602,22 @@ settings:
 
 /*====================================================== ADDITIONS ========================================================================*/
 
+body.custom-accent-bold {
+  --bold-color: var(--caccent1);
+}
+
+body {
+    --bold-color: var(--custom-bold);
+}
+
+body.custom-accent-italic {
+  --italic-color: var(--caccent1);
+}
+
+body {
+    --italic-color: var(--custom-italic);
+}
+
 /*======== Ninja Cursor Enhancement ===========*/
 /*credit goes to the people in this thread: https://forum.obsidian.md/t/options-to-modify-cursor-style/1091/41?page=2 */
 body.is-focused
@@ -1576,8 +1627,8 @@ body.is-focused
     background: transparent;
     backdrop-filter: invert(100%);
     filter: grayscale(100%);
-    width: calc(var(--cursor-height) * .5);
-    left: calc(var(--cursor-height) * -.5);
+    width: calc(var(--cursor-height) * .55);
+    left: calc(var(--cursor-height) * -0);
     height: calc(2px + var(--cursor-height));
     max-height: 2rem;
     max-width: 17px;
