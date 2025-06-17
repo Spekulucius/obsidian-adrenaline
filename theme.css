@@ -11,6 +11,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --caccent-i2: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 67%)*-100));
     --caccent1: var(--custom-accent, hsl(var(--accent-h), var(--accent-s), var(--accent-l)));
     --caccent2: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5));
+    --caccent3: var(--custom-accent, hsla(var(--accent-h), calc(var(--accent-s) * .5), calc(var(--accent-l) * .7), 1));
     --s1: var(--custom-accent, hsla(var(--accent-h), var(--accent-s), 5%, .5));
     --custom-accent-bold: var(--caccent1);
 }
@@ -83,6 +84,15 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 
 
 /*=========================================== MAIN BODY - GENERAL CONFIG ===================================================*/
+
+body.status-bar-hover .status-bar{
+    opacity: 0;
+    transition: all .5s;
+    &:hover {        
+        opacity: 1;
+    }
+}
+
 
 /*========= Nav Bar Buttons Animation ===================*/
 div.nav-header
@@ -535,7 +545,7 @@ body:not(.mod-macos) .mod-vertical .workspace-tab-header-container {
 .tree-item-self.nav-file-title.tappable.is-clickable.is-active {
     position: relative !important;
     color: var(--caccent-i2) !important;
-    background-color: var(--caccent2);
+    background-color: var(--caccent3);
     border-bottom: 2px solid rgba(0, 0, 0, 0.251);
     border-radius: 5px;
     font-weight: 600;
@@ -842,7 +852,26 @@ body:not(.disable-hover-indicator) .workspace-leaf-content:is([data-type="markdo
     pointer-events: none;
     background-color: var(--caccent1);
     color: var(--caccent-i1);
-    border-radius: 3px;
+        -moz-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        -moz-border-bottom-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        -moz-border-top-right-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        border-top-right-radius: 5px;
+        -moz-border-top-left-radius: 5px;
+        -webkit-border-top-left-radius: 5px;
+        border-top-left-radius: 5px;
+        -webkit-box-decoration-break: clone;
+        -o-box-decoration-break: clone;
+        box-decoration-break: clone;
+}
+
+.cm-formatting.cm-formatting-highlight.cm-highlight {
+    background: none;
+    color: var(--caccent1);
 }
 /*======== SEARCHED TEXT HIGHLIGHTING =================*/
 .search-result-file-matched-text {
@@ -900,75 +929,42 @@ body {
 
 /*========================================== HEADINGS =========================================*/
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1 {
-    border-left: 3px solid var(--caccent1);
-    padding-top: 0px !important;
-    padding-left: 20px !important;
-    margin-left: -24px !important;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h1-color, var(--general-heading-color, unset));
 }
-
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2 {
-    margin-bottom: 0px !important;
-    border-left: 3px dashed var(--caccent1);
-    padding-top: 0px !important;
-    padding-left: 20px !important;
-    margin-left: -24px !important;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h2-color, var(--general-heading-color, unset));
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3 {
-    margin-bottom: 0px !important;
-    border-left: 3px dotted var(--caccent1);
-    padding-top: 0px !important;
-    padding-left: 20px !important;
-    margin-left: -24px !important;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h3-color, var(--general-heading-color, unset));
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h4-color, var(--general-heading-color, unset));
-    padding-top: 0 !important;
-    margin-top: .9em !important;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h5-color, var(--general-heading-color, unset));
-    padding-top: 0 !important;
-    margin-top: .9em !important;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h6-color, var(--general-heading-color, unset));
-    padding-top: 0 !important;
-    margin-top: .9em !important;
 }
 
 
 .markdown-rendered h1 {
-    margin-bottom: 0px !important;
-    border-left: 3px solid var(--caccent1);
-    padding-left: 20px;
-    margin-left: -24px;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h1-color, var(--general-heading-color, unset));
 }
 
 .markdown-rendered h2 {
-    margin-bottom: 0px !important;
-    border-left: 3px dashed var(--caccent1);
-    padding-left: 20px;
-    margin-left: -24px;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h2-color, var(--general-heading-color, unset));
 }
 .markdown-rendered h3 {
-    margin-bottom: 0px !important;
-    border-left: 3px dotted var(--caccent1);
-    padding-left: 20px;
-    margin-left: -24px;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h3-color, var(--general-heading-color, unset));
 }
@@ -989,56 +985,101 @@ body {
 }
 
 
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1,
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2,
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3,
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4,
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5,
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6,
+/*heading indicator*/
+.markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1:before,
+.markdown-rendered h1:before {
+    position: absolute;
+    content: "";
+    margin-top: 3px;
+    height: 1em;
+    border-left: 3px solid var(--custom-h1-color, var(--general-heading-color, var(--caccent1)));
+    padding-left: 20px !important;
+    margin-left: -24px !important;
+}
+.markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2:before,
+.markdown-rendered h2:before {
+    position: absolute;
+    content: "";
+    margin-top: 3px;
+    height: 1em;
+    border-left: 3px dashed var(--custom-h2-color, var(--general-heading-color, var(--caccent1)));
+    padding-left: 20px !important;
+    margin-left: -24px !important;
+}
+.markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3:before,
+.markdown-rendered h3:before {
+    position: absolute;
+    content: "";
+    margin-top: 3px;
+    height: 1em;
+    border-left: 3px dotted var(--custom-h3-color, var(--general-heading-color, var(--caccent1)));
+    padding-left: 20px !important;
+    margin-left: -24px !important;
+}
+
+
+/*heading mark*/
+body.heading-highlighting .cm-header.cm-header-1:not(.cm-formatting.cm-formatting-header.cm-formatting-header-1.cm-header.cm-header-1),
+body.heading-highlighting .cm-header.cm-header-2:not(.cm-formatting.cm-formatting-header.cm-formatting-header-2.cm-header.cm-header-2),
+body.heading-highlighting .cm-header.cm-header-3:not(.cm-formatting.cm-formatting-header.cm-formatting-header-3.cm-header.cm-header-3),
+body.heading-highlighting .cm-header.cm-header-4:not(.cm-formatting.cm-formatting-header.cm-formatting-header-4.cm-header.cm-header-4),
+body.heading-highlighting .cm-header.cm-header-5:not(.cm-formatting.cm-formatting-header.cm-formatting-header-5.cm-header.cm-header-5),
+body.heading-highlighting .cm-header.cm-header-6:not(.cm-formatting.cm-formatting-header.cm-formatting-header-6.cm-header.cm-header-6),
 body.heading-highlighting .markdown-rendered h1,
 body.heading-highlighting .markdown-rendered h2,
 body.heading-highlighting .markdown-rendered h3,
 body.heading-highlighting .markdown-rendered h4,
 body.heading-highlighting .markdown-rendered h5,
 body.heading-highlighting .markdown-rendered h6 {
-    color: var(--caccent-i1) !important;
-    position: relative;
-    background-color: var(--caccent1);
+    color: var(--caccent-i1);
     border-bottom: 2px solid var(--s1);
-    border-radius: 5px;
-    transition: all .2s;
-    margin-left: 0px !important;
     padding-left: 5px !important;
-    left: 0;
-    border-left: none;
-    &:before {
-        content: "";
-        width: calc(100% - 3px);
-        height: calc(100% - 3px);
-        background-color: transparent;
-        border-radius: 3px;
-        position: absolute;
-        bottom: 2px;
-        left: 1.5px;
-        box-shadow: 0px 0px 0px 1px var(--hl1);
-        pointer-events: none !important;
-    }
+    padding-right: 5px !important;
+        -moz-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        -moz-border-bottom-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        -moz-border-top-right-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        border-top-right-radius: 5px;
+        -moz-border-top-left-radius: 5px;
+        -webkit-border-top-left-radius: 5px;
+        border-top-left-radius: 5px;
+        -webkit-box-decoration-break: clone;
+        -o-box-decoration-break: clone;
+        box-decoration-break: clone;
 }
 
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1:is(.cm-active),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2:is(.cm-active),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3:is(.cm-active),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4:is(.cm-active),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5:is(.cm-active),
-body.heading-highlighting .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-6:is(.cm-active) {
-    background-color: transparent !important;
-    border-bottom: 2px solid transparent !important;
-    transition: all .2s;
-    color: var(--tci) !important;
-    &:before {
-        display: none;
-    }
+/*heading mark custom colors*/
+body.heading-highlighting .cm-header.cm-header-1:not(.cm-formatting.cm-formatting-header.cm-formatting-header-1.cm-header.cm-header-1),
+body.heading-highlighting .markdown-rendered h1 {
+    background-color: var(--custom-h1-color, var(--general-heading-color, var(--caccent1)));
 }
+
+body.heading-highlighting .cm-header.cm-header-2:not(.cm-formatting.cm-formatting-header.cm-formatting-header-2.cm-header.cm-header-2),
+body.heading-highlighting .markdown-rendered h2 {
+    background-color: var(--custom-h2-color, var(--general-heading-color, var(--caccent1)));
+}
+body.heading-highlighting .cm-header.cm-header-3:not(.cm-formatting.cm-formatting-header.cm-formatting-header-3.cm-header.cm-header-3),
+body.heading-highlighting .markdown-rendered h3 {
+    background-color: var(--custom-h3-color, var(--general-heading-color, var(--caccent1)));
+}
+body.heading-highlighting .cm-header.cm-header-4:not(.cm-formatting.cm-formatting-header.cm-formatting-header-4.cm-header.cm-header-4),
+body.heading-highlighting .markdown-rendered h4 {
+    background-color: var(--custom-h4-color, var(--general-heading-color, var(--caccent1)));
+}
+body.heading-highlighting .cm-header.cm-header-5:not(.cm-formatting.cm-formatting-header.cm-formatting-header-5.cm-header.cm-header-5),
+body.heading-highlighting .markdown-rendered h5 {
+    background-color: var(--custom-h5-color, var(--general-heading-color, var(--caccent1)));
+}
+body.heading-highlighting .cm-header.cm-header-6:not(.cm-formatting.cm-formatting-header.cm-formatting-header-6.cm-header.cm-header-6),
+body.heading-highlighting .markdown-rendered h6 {
+    background-color: var(--custom-h6-color, var(--general-heading-color, var(--caccent1)));
+}
+
+
 
 
 
@@ -1412,6 +1453,11 @@ name: Theme Settings
 id: a-unique-id
 settings:
     - 
+        id: status-bar-hover
+        title: Hide Status Bar
+        description: Only show the status bar when hovering over it
+        type: class-toggle
+    -
         id: Text and Spacing
         title: Text and Spacing
         type: heading
