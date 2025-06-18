@@ -379,20 +379,9 @@ body:has(.show-ribbon):not(.is-mobile),:has(.workspace-ribbon.side-dock-ribbon) 
 
 
 /*==================== resize handles ====================*/
-.workspace-split.mod-left-split > .workspace-leaf-resize-handle, .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
-    height: calc(var(--divider-vertical-height) - var(--header-height)) !important;
-    bottom: 0px !important;
-}
-
-
-.workspace-split.mod-left-split > .workspace-leaf-resize-handle, .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
-    height: calc(var(--divider-vertical-height) - var(--header-height)) !important;
-    bottom: 0px !important;
-}
-
-
-
-body > div.app-container > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root .workspace-leaf-resize-handle{
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle, .workspace-split.mod-right-split > .workspace-leaf-resize-handle,
+body > div.app-container > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root > div.workspace-tabs.mod-top.mod-top > hr,
+body > div.app-container > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root > div > div.workspace-split.mod-vertical > div.workspace-tabs.mod-top.mod-top-left-space > hr {
     height: calc(var(--divider-vertical-height) - var(--header-height)) !important;
     bottom: 0px !important;
 }
