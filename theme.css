@@ -29,7 +29,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg2_h: var(--accent-h);
     --bg2_s: 10%;
     --bg2_l: 96%;
-    --bg2: hsl(var(--bg2_h), calc(1% * var(--bgt_s)), calc(var(--bg2_l) + calc(var(--bgt_l) * 1%)));
+    --bg2: hsl(var(--bg2_h), calc(1% * var(--bgt_s, 1)), calc(var(--bg2_l) + calc(var(--bgt_l, 0) * 1%)));
 
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 40%), 95%, 100%);
     --bg4: white;
@@ -61,7 +61,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg2_h: var(--accent-h);
     --bg2_s: 0%;
     --bg2_l: 15%;
-    --bg2: hsl(var(--bg2_h), calc(.05% * var(--bgt_s)), calc(var(--bg2_l) + calc(var(--bgt_l) * 1%)));
+    --bg2: hsl(var(--bg2_h), calc(.05% * var(--bgt_s, 1)), calc(var(--bg2_l) + calc(var(--bgt_l, 0) * 1%)));
 
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 95%), 10%, 100%);
     --bg4: rgb(12, 12, 12);
