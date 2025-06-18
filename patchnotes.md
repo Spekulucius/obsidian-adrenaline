@@ -1,3 +1,7 @@
+## 2.6.1
++ MacOS fixes, should now work as good as on Windows
++ fixed a major issue regarding resize handles
+
 # 2.6.0
 + added the option to style settings to adjust the background tint
 
