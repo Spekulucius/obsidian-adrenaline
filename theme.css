@@ -8,10 +8,10 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 /*=========================================== COLORS ===================================================*/
 .theme-light, .theme-dark {
     --caccent-i1: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 49%)*-100));
-    --caccent-i2: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 67%)*-100));
+    --caccent-i2: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 20%)*-100));
     --caccent1: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
     --caccent2: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
-    --caccent3: hsla(var(--accent-h), calc(var(--accent-s) * .5), calc(var(--accent-l) * .7), 1);
+    --caccent3: hsla(var(--accent-h), calc(var(--accent-s) * .7), calc(var(--accent-l) * 1), 1);
     --s1: hsla(var(--accent-h), var(--accent-s), 5%, .5);
     --custom-accent-bold: var(--caccent1);
     
@@ -440,7 +440,7 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-si
 
 
 /*================================= TITLEBAR ================================*/
-body:not(.mod-macos) .mod-vertical .workspace-tab-header-container {
+.mod-vertical .workspace-tab-header-container {
     padding-left: 0px !important;
     padding-bottom: 3px;
 }
