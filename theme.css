@@ -175,8 +175,9 @@ div.nav-header
 
 
 .sidebar-toggle-button {
-padding-bottom: 6px !important;
-padding-top: 5px !important;
+    padding-bottom: 6px !important;
+    padding-top: 5px !important;
+    color: var(--icon-color);
 }
 
 
