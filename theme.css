@@ -1295,6 +1295,8 @@ ul.has-list-bullet * blockquote {
 
 .callout {
     color: inherit;
+    border-radius: 5px;
+    margin-top: 5px !important;
     margin-left: 5px !important;
     margin-right: 5px !important;
     margin-bottom: 5px !important;
