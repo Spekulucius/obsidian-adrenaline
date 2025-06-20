@@ -11,7 +11,6 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --caccent-i2: hsl(var(--accent-h), var(--accent-s), calc(calc(var(--accent-l) - 20%)*-100));
     --caccent1: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
     --caccent2: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.5);
-    --caccent3: hsla(var(--accent-h), calc(var(--accent-s) * .7), calc(var(--accent-l) * 1), 1);
     --s1: hsla(var(--accent-h), var(--accent-s), 5%, .5);
     --custom-accent-bold: var(--caccent1);
     
@@ -21,6 +20,8 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 }
 
 .theme-light {
+    --background-primary: hsl(var(--bg2_h), calc(calc(var(--accent-s) * .5) + calc(.5% * var(--bgt_s, 1))), calc(calc(var(--bg2_l) - 2%) + calc(var(--bgt_l, 0) * 1%)));
+
     --bg1: hsl(var(--accent-h), calc(var(--accent-s) - 20%), 90%, 100%);
     --bg1_2: rgb(234, 234, 234);
     --bg1-h: #bdbdbd;
@@ -29,7 +30,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg2_h: var(--accent-h);
     --bg2_s: 10%;
     --bg2_l: 96%;
-    --bg2: hsl(var(--bg2_h), calc(1% * var(--bgt_s, 1)), calc(var(--bg2_l) + calc(var(--bgt_l, 0) * 1%)));
+    --bg2: hsl(var(--bg2_h), calc(calc(var(--accent-s) * .1) + calc(1% * var(--bgt_s, 1))), calc(calc(var(--bg2_l) + 0%) + calc(var(--bgt_l, 0) * 1%)));
 
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 40%), 95%, 100%);
     --bg4: white;
@@ -41,6 +42,11 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 
     --s2: rgba(0, 0, 0, 0.257);
     --s3: rgba(0, 0, 0, 0.227);
+    --s4: hsla(var(--bg2_h), calc(calc(var(--accent-s) * .5) + calc(.1% * var(--bgt_s, 1))), calc(calc(var(--bg2_l) - 20%) + calc(var(--bgt_l, 0) * 1%)), .5);
+
+    --caccent3: hsla(var(--accent-h), calc(var(--accent-s) * .9), calc(var(--accent-l) * 1.2), 1);
+
+    --divider-color: rgba(200, 200, 200, 0.441);
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -54,6 +60,8 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 }
 
 .theme-dark {
+    --background-primary: hsl(var(--bg2_h), calc(calc(var(--accent-s) * .01) + calc(.1% * var(--bgt_s, 1))), calc(var(--bg2_l) + calc(var(--bgt_l, 0) * .1% - 5%)));
+
     --bg1: #171717;
     --bg1-h: var(--caccent1);
     --bg1-item: var(--nav-item-color);
@@ -61,7 +69,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg2_h: var(--accent-h);
     --bg2_s: 0%;
     --bg2_l: 15%;
-    --bg2: hsl(var(--bg2_h), calc(.05% * var(--bgt_s, 1)), calc(var(--bg2_l) + calc(var(--bgt_l, 0) * 1%)));
+    --bg2: hsl(var(--bg2_h), calc(calc(var(--accent-s) * .01) + calc(.1% * var(--bgt_s, 1))), calc(var(--bg2_l) + calc(var(--bgt_l, 0) * 1%)));
 
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 95%), 10%, 100%);
     --bg4: rgb(12, 12, 12);
@@ -73,6 +81,11 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 
     --s2: hsla(var(--accent-h), calc(var(--accent-s) * 0), calc(var(--accent-l) * .1), .4);
     --s3: rgba(0, 0, 0, 0.47);
+    --s4: hsla(var(--bg2_h), calc(calc(var(--accent-s) * .5) + calc(.1% * var(--bgt_s, 1))), calc(calc(var(--bg2_l) - 20%) + calc(var(--bgt_l, 0) * 1%)), .5);
+
+    --caccent3: hsla(var(--accent-h), calc(var(--accent-s) * .4), calc(var(--accent-l) * .6), 1);
+
+    --divider-color: rgba(105, 105, 105, 0.441);
 
     --color-base-00: var(--bg3);
     --color-base-50: var(--caccent1) !important;
@@ -290,7 +303,7 @@ body:not(.mod-macos)
 
 .titlebar-button-container.mod-right,
 .workspace-split {
-    background: var(--bg3) !important;
+    background: transparent !important;
 }
 
 .view-header,
@@ -347,7 +360,7 @@ body:not(.is-mobile):not(.show-ribbon) .workspace:before {
 }
 
 
-
+/*!!!*/
 .workspace:not(.is-mobile)::before {
     content: " ";
     width: 100%;
@@ -357,8 +370,10 @@ body:not(.is-mobile):not(.show-ribbon) .workspace:before {
     position: absolute;
     bottom: 0px;
     right: 0px;
-    box-shadow: 0px 0px 0px 1px var(--divider-color);
+    box-shadow: 0px 0px 0px 1px var(--divider-color), 0 0 5px 1px var(--s4);
 }
+
+
 
 
 body:has(.show-ribbon):not(.is-mobile),:has(.workspace-ribbon.side-dock-ribbon:hover) .workspace::before {
@@ -554,7 +569,7 @@ body.enhanced-buttons-disable {
     border-bottom: 2px solid rgba(0, 0, 0, 0.251);
     border-radius: 5px;
     font-weight: 600;
-    transition: background-color .5s;
+    transition: background-color .2s;
         &:hover {
         background-color: var(--caccent1) !important;
         border-bottom: 2px solid var(--s1);
@@ -1063,6 +1078,15 @@ body.heading-highlighting .markdown-rendered h6 {
         -o-box-decoration-break: clone;
         box-decoration-break: clone;
 }
+/* heading mark link color correction */
+body.heading-highlighting h1 > a, 
+body.heading-highlighting h2 > a, 
+body.heading-highlighting h3 > a, 
+body.heading-highlighting h4 > a, 
+body.heading-highlighting h5 > a, 
+body.heading-highlighting h6 > a {
+    color: var(--tci) !important;
+}
 
 /*heading mark custom colors*/
 body.heading-highlighting .cm-header.cm-header-1:not(.cm-formatting.cm-formatting-header.cm-formatting-header-1.cm-header.cm-header-1),
@@ -1267,85 +1291,40 @@ ul.has-list-bullet * blockquote {
 
 
 /* =========================== CALLOUTS ============================*/
-.theme-dark
+
 .callout {
     color: inherit;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-    box-shadow: 0px 0px 0px 1px var(--divider-color);
-    margin-top: 7px;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    margin-bottom: 5px !important;
     --callout-padding: 0;
     --callout-title-color: inherit;
     --callout-title-padding: 6px 10px;
     --callout-title-size: inherit;
     --callout-content-padding: 5px 10px 5px 10px;
     --callout-content-radius: 0px;
-    --blockquote-background-light: var(--background-alt-light);
     --callout-blend-mode: normal;
+    box-shadow: .5px .5px 3px 1px var(--s3) !important;
+    background: var(--bg2) !important;
 }
-.theme-dark
-.callout-content {
-    background: var(--bg3) !important;
-}
-.theme-dark .callout-title {
+.callout-title {
     position: relative;
-    color: var(--tci);
-    background: var(--bg5);
+    color: var(--caccent-i1);
+    background: var(--caccent1);
     border-bottom: 2px solid rgba(0, 0, 0, 0.251);
     border-radius: 5px;
 }
-.theme-dark
-.cm-callout {
-    border-radius: 5px;
-        box-shadow: 0px 0px 0px 1px var(--divider-color);
+.callout-title:before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");   
 }
-.theme-dark
 .markdown-source-view.mod-cm6 .cm-embed-block:hover {
     border-radius: 5px;
         box-shadow: 0px 0px 0px 1px var(--divider-color) !important;
 }
-
-.theme-light
-.callout {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23000000' fill-opacity='99' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-    box-shadow: 0px 0px 0px 1px rgb(204, 204, 204);
-    margin-top: 7px;
-    --callout-padding: 0;
-    --callout-title-color: inherit;
-    --callout-title-padding: 6px 10px;
-    --callout-title-size: inherit;
-    --callout-content-padding: 5px 10px 5px 10px;
-    --callout-content-radius: 0px;
-    --blockquote-background-light: var(--background-alt-light);
-    --callout-blend-mode: normal;
-}
-.theme-light
-.callout-content {
-    background: var(--bg1_2) !important;
-}
-.theme-light .callout-title {
-    position: relative;
-    color: var(--caccent-i1);
-    background: var(--bg5);
-    border-bottom: 2px solid var(--s1);
-    border-radius: 5px;
-}
-.theme-light
-.cm-callout {
-    border-radius: 5px;
-        box-shadow: 0px 0px 0px 1px rgb(204, 204, 204);
-}
-.theme-light
-.markdown-source-view.mod-cm6 .cm-embed-block:hover {
-    border-radius: 5px;
-        box-shadow: 0px 0px 0px 1px rgb(204, 204, 204) !important;
-}
-
-
 .callout-content blockquote {
     margin-bottom: .2em !important;
     margin-top: .2em !important;
 }
-
 .callout-content ol {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -1725,9 +1704,6 @@ body.enhanced-cursor.is-focused
 body.enhanced-cursor:has(.x-cursor) .cm-editor * {
 caret-color: transparent;
 }
-
-
-
 
 
 
