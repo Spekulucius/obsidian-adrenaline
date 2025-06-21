@@ -1,3 +1,6 @@
+## 2.6.2 - 2.6.4
++ fixed some issues, especially regarding workspace rounding
+
 ## 2.6.1
 + MacOS fixes, should now work as good as on Windows
 + fixed a major issue regarding resize handles
