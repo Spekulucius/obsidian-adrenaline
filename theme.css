@@ -419,8 +419,11 @@ body:has(.workspace-tabs.mod-active.mod-top.mod-top-left-space.mod-top-right-spa
 .mod-top-left-space .workspace-tab-container {
     border-top-left-radius: 7px !important;
 }
-.mod-top-left-space.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed .workspace-tab-container {
+
+body > div.app-container > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root > div > div.workspace-tab-container,
+.workspace-tabs:last-child {
     border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
 }
 
 .workspace-sidedock-vault-profile {
