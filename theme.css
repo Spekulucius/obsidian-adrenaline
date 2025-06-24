@@ -20,7 +20,7 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
 }
 
 .theme-light {
-    --background-primary: hsl(var(--bg2_h), calc(calc(var(--accent-s) * .5) + calc(.5% * var(--bgt_s, 1))), calc(calc(var(--bg2_l) - 2%) + calc(var(--bgt_l, 0) * 1%)));
+    --background-primary: hsl(var(--bg2_h), calc(calc(var(--accent-s) * .2) + calc(.5% * var(--bgt_s, 1))), calc(calc(var(--bg2_l) - 2%) + calc(var(--bgt_l, 0) * 1%)));
 
     --bg1: hsl(var(--accent-h), calc(var(--accent-s) - 20%), 90%, 100%);
     --bg1_2: rgb(234, 234, 234);
@@ -35,9 +35,9 @@ If you have any questions or concerns, please contact me on GitHub: https://gith
     --bg3: hsl(var(--accent-h), calc(var(--accent-s) - 40%), 95%, 100%);
     --bg4: white;
     --bg5: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 90%);
-    --bg6: hsla(var(--accent-h), var(--accent-s), var(--accent-l), .2);
+    --bg6: hsla(var(--accent-h), var(--accent-s), var(--accent-l), .2);  
     
-    --hl1: rgba(255, 255, 255, 0.162);
+    --hl1: rgba(0, 0, 0, 0.056);
     --hl2: rgba(214, 214, 214, 0.308);
 
     --s2: rgba(0, 0, 0, 0.257);
@@ -367,7 +367,7 @@ body:not(.is-mobile):not(.show-ribbon) .workspace:before {
     width: 100%;
     height: calc(100% - 40px);
     background-color: transparent;
-    border-radius: 7px;
+    border-radius: var(--cbr, 7px);
     position: absolute;
     bottom: 0px;
     right: 0px;
@@ -407,27 +407,27 @@ body > div.app-container > div.horizontal-main-container > div > div.workspace-s
 
 body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed), 
 body:has(.workspace-tabs.mod-active.mod-top.mod-top-left-space.mod-top-right-space) .workspace-tab-container {
-    border-radius: 7px !important;
+    border-radius: var(--cbr, 7px) !important;
 }
 
 
 .mod-top-right-space .workspace-tab-container {
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-top-right-radius: var(--cbr, 7px);
+    border-bottom-right-radius: var(--cbr, 7px);
     background: transparent !important;
 }
 .mod-top-left-space .workspace-tab-container {
-    border-top-left-radius: 7px !important;
+    border-top-left-radius: var(--cbr, 7px) !important;
 }
 body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .mod-vertical .workspace-tabs:last-child {
-    border-bottom-left-radius: 7px;
+    border-bottom-left-radius: var(--cbr, 7px);
 }
 .workspace:not(.is-right-sidedock-open) .mod-vertical .workspace-tabs:last-child {
-    border-bottom-right-radius: 7px;
+    border-bottom-right-radius: var(--cbr, 7px);
 }
 
 .workspace-sidedock-vault-profile {
-    border-bottom-left-radius: 7px;
+    border-bottom-left-radius: var(--cbr, 7px);
     background: var(--bg3) !important;
 }
 body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-sidedock-vault-profile {
@@ -504,8 +504,7 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed) .workspace-si
 .clickable-icon:not(.workspace-drawer-vault-actions > .clickable-icon):before,
 .tree-item-self.nav-file-title.tappable.is-clickable.is-active:after,
 .mod-vertical .workspace-tab-header.tappable:not(.is-active) .workspace-tab-header-inner:before,
-.mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner:before,
-.callout-title:before {
+.mod-vertical .workspace-tab-header.tappable.is-active .workspace-tab-header-inner:before {
     content: "";
     width: calc(100% - 3px);
     height: calc(100% - 3px);
@@ -962,19 +961,23 @@ body {
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-1 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h1-color, var(--general-heading-color, unset));
+    font-size: 1.4em;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-2 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h2-color, var(--general-heading-color, unset));
+    font-size: 1.3em;
 }
 
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-3 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h3-color, var(--general-heading-color, unset));
+    font-size: 1.2em;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-4 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h4-color, var(--general-heading-color, unset));
+    font-size: 1.1em;
 }
 .markdown-source-view.mod-cm6 .cm-content > .HyperMD-header-5 {
     letter-spacing: var(--custom-letter-spacing, .1px);
@@ -989,30 +992,40 @@ body {
 .markdown-rendered h1 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h1-color, var(--general-heading-color, unset));
+    font-size: 1.4em;
+    display: inline;
 }
 
 .markdown-rendered h2 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h2-color, var(--general-heading-color, unset));
+    font-size: 1.3em;
+    display: inline;
 }
 .markdown-rendered h3 {
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h3-color, var(--general-heading-color, unset));
+    font-size: 1.2em;
+    display: inline;
 }
 .markdown-rendered h4 {
     margin-bottom: 0px !important;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h4-color, var(--general-heading-color, unset));
+    font-size: 1.1em;
+    display: inline;
 }
 .markdown-rendered h5 {
     margin-bottom: 0px !important;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h5-color, var(--general-heading-color, unset));
+    display: inline;
 }
 .markdown-rendered h6 {
     margin-bottom: 0px !important;
     letter-spacing: var(--custom-letter-spacing, .1px);
     color: var(--custom-h6-color, var(--general-heading-color, unset));
+    display: inline;
 }
 
 
@@ -1228,13 +1241,11 @@ li {
 
 /*======================================== BLOCKQUOTES ================================*/
 /*preview mode */
-.markdown-rendered blockquote,
-.blockquote,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote{
+body:not(.tv1) .markdown-rendered blockquote,
+body:not(.tv1) .blockquote,
+body:not(.tv1) .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote{
     border-radius: 5px;
     background-color: var(--bg2);
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
     border-left: 10px solid var(--caccent1);
 }
 
@@ -1246,10 +1257,10 @@ li {
 
 
 /*BLOCKQUOTE PREVIEW VIEW SHADOW*/
-.is-live-preview
+body:not(.tv1) .is-live-preview
 .HyperMD-quote:before {
     content: '';
-    box-shadow: .5px .5px 3px 1px var(--s3);
+    box-shadow: .5px .5px 8px 1px var(--s3);
     z-index: -1;
     position: absolute;
     width: calc(100% + 8px) !important;
@@ -1271,7 +1282,7 @@ li {
 }
 
 /*BLOCKQUOTE COLORS AND SHADOWS*/
-blockquote {
+body:not(.tv1) blockquote {
     filter: drop-shadow(0 0 2px var(--s3))
 }
 
@@ -1292,17 +1303,25 @@ ul.has-list-bullet * blockquote {
     margin-top: 0;
 }
 
+.HyperMD-quote + .HyperMD-quote {
+    &:before {
+        border-top-right-radius: 0px !important;
+        border-top-left-radius: 0px !important
+    }
+}
 
+.HyperMD-quote:has(+ .HyperMD-quote) {
+    &:before {
+        border-bottom-right-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+    }    
+}
 
 /* =========================== CALLOUTS ============================*/
 
-.callout {
+body:not(.tv1) .callout {
     color: inherit;
     border-radius: 5px;
-    margin-top: 5px !important;
-    margin-left: 5px !important;
-    margin-right: 5px !important;
-    margin-bottom: 5px !important;
     --callout-padding: 0;
     --callout-title-color: inherit;
     --callout-title-padding: 6px 10px;
@@ -1312,21 +1331,30 @@ ul.has-list-bullet * blockquote {
     --callout-blend-mode: normal;
     box-shadow: .5px .5px 3px 1px var(--s3) !important;
     background: var(--bg2) !important;
+    margin-bottom: 5px;
 }
-.callout-title {
+body:not(.tv1) .cm-embed-block.cm-callout {
+    border-radius: 5px;
+    box-shadow: .5px .5px 3px 1px var(--s3) !important;
+}
+body:not(.tv1) .cm-embed-block.cm-callout:hover {
+    border-radius: 5px !important;
+}
+body:not(.tv1) .callout-title {
     position: relative;
     color: var(--caccent-i1);
     background: var(--caccent1);
     border-bottom: 2px solid rgba(0, 0, 0, 0.251);
     border-radius: 5px;
 }
-.callout-title:before {
+body:not(.tv1) .callout-title:before {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");   
 }
 .markdown-source-view.mod-cm6 .cm-embed-block:hover {
     border-radius: 5px;
         box-shadow: 0px 0px 0px 1px var(--divider-color) !important;
 }
+
 .callout-content blockquote {
     margin-bottom: .2em !important;
     margin-top: .2em !important;
@@ -1335,6 +1363,18 @@ ul.has-list-bullet * blockquote {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
 }
+
+.callout-title:before {
+    content: "";
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+    background-color: transparent;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 2px;
+    left: 1.5px;
+    box-shadow: 0px 0px 0px 1px var(--hl1);
+} 
 
 
 
@@ -1351,12 +1391,20 @@ img {
     border-radius: 10px;
 }
 
-
-img[alt="c"] {
-    filter: grayscale(100%) !important;
+.theme-light.blend-images .internal-embed.media-embed.image-embed.is-loaded {
+    mix-blend-mode: multiply;
 }
 
+.theme-dark.blend-images .internal-embed.media-embed.image-embed.is-loaded {
+    mix-blend-mode: color-dodge;
+}
 
+.theme-light.blend-images img {
+    filter: invert(0) saturate(0);
+ }
+.theme-dark.blend-images img {
+    filter: invert(1) saturate(0);
+ }
 /*================= ROUNDED TABLES =================*/
 /*Credit goes to "FireIsGood": https://forum.obsidian.md/t/adding-rounded-corners-to-markdown-tables-with-snippets-a-clean-solution/60551 */
 /* TABLES: Fix the borders and add a radius variable */
@@ -1456,6 +1504,20 @@ settings:
         description: "Thank you for using my theme! If you encounter issues or have suggestions, please open a ticket on my GitHub repo <3"
         type: info-text
         markdown: true
+    -
+    - 
+        id: Theme variants
+        title: Theme variants
+        type: class-select
+        allowEmpty: false
+        default: default
+        options:
+            - 
+                label: default Adrenaline
+                value: default
+            - 
+                label: Variant 1
+                value: tv1
     -
         id: Text and Spacing
         title: Text and Spacing
@@ -1657,6 +1719,19 @@ settings:
         title: Enable Block Caret-Cursor
         description: Enables a blocky caret, similar to that in a command prompt - NINJA CURSOR PLUGIN REQUIRED - please not that this fix, and the plugin itself is kind of buggy, so please don't expect wonders from it
         type: class-toggle
+    - 
+        id: blend-images
+        title: Blend embedded Image Background
+        type: class-toggle
+    - 
+        id: cbr
+        title: Custom Workspace Border Radius
+        type: variable-number-slider
+        default: 7
+        min: 0
+        max: 50
+        step: 1
+        format: px
 */
 
 
@@ -1713,5 +1788,103 @@ caret-color: transparent;
 
 
 
+body > div.titlebar > div > div.titlebar-button-container.mod-right > div.titlebar-button.mod-minimize,
+body > div.titlebar > div > div.titlebar-button-container.mod-right > div.titlebar-button.mod-maximize,
+body > div.titlebar > div > div.titlebar-button-container.mod-right > div.titlebar-button.mod-close {
+    border-radius: 10px;
+    padding: 0px 9px 0px 9px;
+    margin: 0px 5px 0px 5px;
+}
 
+body > div.titlebar > div > div.titlebar-button-container.mod-right {
+    padding: 5px;
+}
+
+
+/*==================== Theme Variants ==================*/
+
+body.tv1 .callout {
+    color: inherit;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 1px var(--c-tv1), 0px 0px 3px 1px var(--s-tv1);
+    --callout-padding: 0;
+    --callout-title-color: inherit;
+    --callout-title-padding: 6px 10px;
+    --callout-title-size: inherit;
+    --callout-content-padding: 5px 10px 5px 10px;
+    --callout-content-radius: 0px;
+    --callout-blend-mode: normal;
+    background: var(--bg1-tv1) !important;
+    margin-bottom: 5px;
+}
+
+body.tv1 .cm-embed-block.cm-callout {
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 1px var(--c-tv1), 0px 0px 3px 1px var(--s-tv1);
+}
+body.tv1 .cm-embed-block.cm-callout:hover {
+    border-radius: 10px !important;
+}
+
+body.tv1 .callout-title {
+    position: relative;
+    color: var(--caccent-tci);
+    border-radius: 5px;
+    font-size: 1.3em;
+}
+body.tv1 .callout-title:before {
+    display: none;
+}
+
+
+body.tv1 .markdown-rendered blockquote,
+body.tv1 .blockquote,
+body.tv1 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote{
+    border-radius: 10px;
+    background-color: var(--bg2-tv1);
+    border-left: none;
+}
+
+
+body.tv1 .is-live-preview .HyperMD-quote:before {
+    content: '';
+    box-shadow: 0px 0px 0px 1px var(--c-tv1), 0px 0px 3px 1px var(--s-tv1);
+    z-index: -1;
+    position: absolute;
+    width: calc(100%) !important;
+    border: 0px solid transparent !important;
+    border-radius: 10px;
+}
+
+body.tv1 blockquote {
+    box-shadow: 0px 0px 0px 1px var(--c-tv1), 0px 0px 3px 1px var(--s-tv1);
+    border-radius: 10px;
+}
+body.tv1 blockquote:has(blockquote) {
+    padding-bottom: 5px !important;
+}
+
+body.tv1 .workspace-leaf-content {
+    --scrollbar-thumb-bg: transparent;
+    &:hover {
+        --scrollbar-thumb-bg: transparent !important;
+    }
+}
+
+
+body.tv1 {
+    --cbr: 20px !important;
+}
+.theme-dark.tv1 {
+    --c-tv1: rgb(58, 58, 58);
+    --s-tv1: rgba(0, 0, 0, 0.47);
+    --bg1-tv1: rgba(30, 30, 30, 0.653);
+    --bg2-tv1: rgba(30, 30, 30, 0.362);
+}
+.theme-light.tv1 {
+    --c-tv1: rgb(209, 209, 209);
+    --s-tv1: rgba(0, 0, 0, 0.089);
+    --bg1-tv1: rgba(30, 30, 30, 0.037);
+    --bg2-tv1: rgba(30, 30, 30, 0.03);
+}
 
