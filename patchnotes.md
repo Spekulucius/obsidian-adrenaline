@@ -1,3 +1,9 @@
+# 2.7.0
++ adjusted heading size
++ adjusted marked headings in reading mode
++ improved callouts
++ added a theme variant that can be enabled via style settings
+
 ## 2.6.2 - 2.6.4
 + fixed some issues, especially regarding workspace rounding
 
