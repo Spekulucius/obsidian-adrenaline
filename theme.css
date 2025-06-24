@@ -1849,7 +1849,7 @@ body.tv1 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote{
 body.tv1 .is-live-preview .HyperMD-quote:before {
     content: '';
     box-shadow: 0px 0px 0px 1px var(--c-tv1), 0px 0px 3px 1px var(--s-tv1);
-    z-index: -1;
+    z-index: -1 !important;
     position: absolute;
     width: calc(100%) !important;
     border: 0px solid transparent !important;
@@ -1879,12 +1879,12 @@ body.tv1 {
     --c-tv1: rgb(58, 58, 58);
     --s-tv1: rgba(0, 0, 0, 0.47);
     --bg1-tv1: rgba(30, 30, 30, 0.653);
-    --bg2-tv1: rgba(30, 30, 30, 0.362);
+    --bg2-tv1: rgb(35, 35, 35);
 }
 .theme-light.tv1 {
     --c-tv1: rgb(209, 209, 209);
     --s-tv1: rgba(0, 0, 0, 0.089);
     --bg1-tv1: rgba(30, 30, 30, 0.037);
-    --bg2-tv1: rgba(30, 30, 30, 0.03);
+    --bg2-tv1: rgb(242, 242, 242);
 }
 
