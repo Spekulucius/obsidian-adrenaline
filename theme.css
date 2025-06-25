@@ -340,12 +340,13 @@ settings:
 body:not(.is-mobile)
 .workspace {
     background-color: transparent;
-    margin-right: 20px;
+    right: 20px !important;
     position: relative;
     overflow: visible;
     display: flex;
     flex: 1 0 0;
-    width: 100%;
+    width: calc(100% - 20px) !important;
+    margin-left: 20px;
 }
 body:not(.is-mobile)
 .horizontal-main-container {
@@ -414,9 +415,9 @@ body:has(.show-ribbon):not(.is-mobile),:has(.workspace-ribbon.side-dock-ribbon) 
 
 
 /*==================== ADJUST RESIZE HANDLES ====================*/
-.workspace-split.mod-left-split > .workspace-leaf-resize-handle, .workspace-split.mod-right-split > .workspace-leaf-resize-handle,
-body > div.app-container > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root > div.workspace-tabs.mod-top.mod-top > hr,
-body > div.app-container > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root > div > div.workspace-split.mod-vertical > div.workspace-tabs.mod-top.mod-top-left-space > hr {
+.workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle { 
     height: calc(var(--divider-vertical-height) - var(--header-height)) !important;
     bottom: 0px !important;
 }
@@ -437,30 +438,28 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed)
     border-bottom-right-radius: var(--cbr, 7px) !important;
     overflow: hidden;
 }
-body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed)
-.workspace-split:first-of-type .workspace-tab-container {
-    border-top-left-radius: var(--cbr, 7px);
-}
 .workspace:not(.is-right-sidedock-open)
-.workspace-split:last-of-type .workspace-tab-container {
+.workspace-split:last-of-type .mod-top-right-space .workspace-tab-container {
     border-top-right-radius: var(--cbr, 7px);
 }
-.is-right-sidedock-open
-.mod-top-right-space .workspace-tab-container {
-    border-top-right-radius: var(--cbr, 7px);
-    border-bottom-right-radius: var(--cbr, 7px);
-}
+
 .mod-top-left-space .workspace-tab-container {
     border-top-left-radius: var(--cbr, 7px) !important;
 }
-
-body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed)
 .workspace:not(.is-right-sidedock-open)
-.workspace-tabs.mod-top:last-of-type .workspace-tab-container {
+.workspace-tabs.mod-top-right-space:last-of-type .workspace-tab-container {
     border-top-right-radius: var(--cbr, 7px);
 }
-
-
+.mod-sidedock {
+    border-bottom-right-radius: var(--cbr, 7px);
+    overflow: hidden !important;
+}
+.mod-sidedock.mod-right-split .workspace-tabs.mod-top .workspace-tab-container {
+    border-top-right-radius: var(--cbr, 7px);
+}
+.mod-sidedock.mod-left-split .workspace-tabs.mod-top .workspace-tab-container {
+    border-top-left-radius: var(--cbr, 7px);
+}
 /*////////////////////////////////////////////////////////////////////////////// MAIN BODY - TAB BAR //////////////////////////////////////////////////////////////////////////////*/
 /*================ Left Sidebar Button =====================*/
 body:has(.workspace-ribbon.side-dock-ribbon):not(.mod-macos) .workspace-ribbon.side-dock-ribbon.mod-left .sidebar-toggle-button.mod-left {
