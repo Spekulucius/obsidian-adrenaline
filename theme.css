@@ -227,7 +227,7 @@ settings:
     - 
         id: enhanced-cursor
         title: Enable Block Caret-Cursor
-        description: Enables a blocky caret, similar to that in a command prompt - NINJA CURSOR PLUGIN REQUIRED - please not that this fix, and the plugin itself is kind of buggy, so please don't expect wonders from it
+        description: Enables a blocky caret, similar to that in a command prompt - NINJA CURSOR PLUGIN REQUIRED - please note that this fix, and the plugin itself is kind of buggy, so please don't expect wonders from it
         type: class-toggle
     - 
         id: blend-images
