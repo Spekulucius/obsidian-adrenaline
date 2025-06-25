@@ -1,3 +1,6 @@
+# 3.0.0
++ complete code overhaul
+
 # 2.7.0
 + adjusted heading size
 + adjusted marked headings in reading mode
