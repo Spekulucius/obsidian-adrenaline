@@ -424,10 +424,6 @@ body:has(.show-ribbon):not(.is-mobile),:has(.workspace-ribbon.side-dock-ribbon) 
 
 
 /*=================== workspace rounded corners ===================*/
-.workspace-sidedock-vault-profile {
-    border-bottom-left-radius: var(--cbr, 7px);
-    background: var(--background-3) !important;
-}
 body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed)
 .mod-root {
     border-bottom-left-radius: var(--cbr, 7px) !important;
@@ -450,9 +446,14 @@ body:has(.workspace-ribbon.side-dock-ribbon.mod-left.is-collapsed)
 .workspace-tabs.mod-top-right-space:last-of-type .workspace-tab-container {
     border-top-right-radius: var(--cbr, 7px);
 }
-.mod-sidedock {
+.mod-sidedock.mod-right-split{
     border-bottom-right-radius: var(--cbr, 7px);
     overflow: hidden !important;
+}
+.workspace-sidedock-vault-profile {
+    border-bottom-left-radius: var(--cbr, 7px);
+    background: var(--background-3) !important;
+    border-bottom-right-radius: 0px !important;
 }
 .mod-sidedock.mod-right-split .workspace-tabs.mod-top .workspace-tab-container {
     border-top-right-radius: var(--cbr, 7px);
@@ -1572,7 +1573,7 @@ body.tv1 .markdown-rendered blockquote,
 body.tv1 .blockquote,
 body.tv1 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote{
     border-radius: 10px;
-    background-color: var(--background-2-tv1);
+    background-color: var(--background-1-tv1);
     border-left: none;
 }
 body.tv1 .is-live-preview .HyperMD-quote:before {
@@ -1603,12 +1604,12 @@ body.tv1 {
 .theme-dark.tv1 {
     --c-tv1: rgb(58, 58, 58);
     --s-tv1: rgba(0, 0, 0, 0.47);
-    --background-1-tv1: rgba(30, 30, 30, 0.653);
-    --background-2-tv1: rgb(35, 35, 35);
+    --background-1-tv1: hsl(var(--background-2_h), calc(calc(var(--accent-s) *.1) + calc(.1% * var(--bgt_s, 1))), calc(var(--background-2_l) + calc(var(--bgt_l, 0) * .1% - 3%)));
+
 }
 .theme-light.tv1 {
     --c-tv1: rgb(209, 209, 209);
     --s-tv1: rgba(0, 0, 0, 0.089);
-    --background-1-tv1: rgba(30, 30, 30, 0.037);
-    --background-2-tv1: rgb(242, 242, 242);
+    --background-1-tv1: hsl(var(--background-2_h), calc(calc(var(--accent-s) * 1) + calc(.5% * var(--bgt_s, 1))), calc(calc(var(--background-2_l) - 2%) + calc(var(--bgt_l, 0) * 1%)));
+
 }
