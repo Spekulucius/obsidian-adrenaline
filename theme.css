@@ -356,6 +356,10 @@ body:not(.is-mobile)
     flex: 1 0 0;
     background: transparent;
 }
+body:not(.is-mobile):not(.show-ribbon)
+.horizontal-main-container {
+    padding-left: 20px;
+}
 body:not(.is-mobile):not(.show-ribbon) .workspace {
     margin-left: 20px;
 }
