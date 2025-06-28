@@ -1,3 +1,6 @@
+## 3.0.2
++ fixed an issue regarding workspace alignment
+
 # 3.0.0
 + complete code overhaul
 
