@@ -505,13 +505,19 @@ body:not(.mod-macos)
     background: var(--background-6);
         transition: background .2s,  color .1s, width .1s ease normal;
 }
+body:not(.mod-macos)
 .sidebar-toggle-button {
     padding-bottom: 6px !important;
     padding-top: 5px !important;
     color: var(--icon-color);
 }
 
-
+body:is(.mod-macos)
+.sidebar-toggle-button {
+    padding-bottom: 5px !important;
+    padding-top: 6px !important;
+    color: var(--icon-color);
+}
 
 
 /*========= Left tab header ====================*/
@@ -1579,6 +1585,10 @@ body.tv1 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote{
     border-radius: 10px;
     background-color: var(--background-1-tv1);
     border-left: none;
+}
+body.tv1 .markdown-rendered blockquote {
+    padding-top: .4em !important;
+    padding-bottom: .4em !important;
 }
 body.tv1 .is-live-preview .HyperMD-quote:before {
     content: '';
