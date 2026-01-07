@@ -1343,7 +1343,7 @@ body:not(.tv1) .cm-embed-block.cm-callout:hover {
 body:not(.tv1) .callout-title {
     position: relative;
     color: var(--colored-accent-i1);
-    background: var(--colored-accent-1);
+    background: var(--colored-accent-2);
     border-bottom: 2px solid rgba(0, 0, 0, 0.251);
     border-radius: 5px;
 }
